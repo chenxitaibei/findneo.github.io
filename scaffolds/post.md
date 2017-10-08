@@ -1,5 +1,9 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+categories: 
+tags: []
+keywords: findneo,
+description: 
+
 ---
