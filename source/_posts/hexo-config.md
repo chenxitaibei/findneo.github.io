@@ -963,5 +963,41 @@ fi
 git push
 ```
 
+#### emmm,重装系统了
 
+```shell
+从头开始，安装git fro windows，配置ssh
+git config --global user.name your_name
+git config --global user.email your_mail
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+clip < ~/.ssh/id_rsa.pub
+ssh -T git@github.com 验证ssh可用
+-------------------------------------
+在GitHub新建findneo.github.io
+git clone https://github.com/findneo/findneo.github.io.git
+cd findneo.github.io
+git checkout -b bakeup 
+新建备份分支并设为默认分支，因为后面只手动操作这个分支，master分支有hexo-deployer-git自动操作 
+hexo init tmp
+cp -a tmp/* ./
+rm -rf tmp
+npm install --save hexo-deployer-git
+npm install --save hexo-generator-baidu-sitemap
+npm install --save hexo-generator-sitemap
+npm install --save hexo-generator-searchdb
+npm i --save hexo-wordcount
+-------------------------------------	
+在站点配置文件中配置git-deployer为naster分支
+git add . 
+git commit -m "..." 
+git push origin bakeup
+hexo d -g
+```
 
+参考了[这位朋友](https://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more)的备份方法，很棒，(๑•̀ㅂ•́)و✧。
+
+重装发现真正离不开的软件有这么些。
+
+---
+
+WSL、[everything](http://www.voidtools.com/)、 [Typora](https://www.typora.io/#windows) 、shadow socks、chrome、firefox、notepad++ 、[一键上网脚本](https://findneo.github.io/2017/10/cmd-surfnet/)、 sublime、印象笔记、python2/3、git for windows、vmware/kali/win7、AgentRansack、7z，射手影音，SumatraPDF，好吧，微软办公系列
