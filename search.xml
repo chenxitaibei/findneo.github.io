@@ -60,9 +60,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[about]]></title>
-    <url>%2Fabout%2Findex.html</url>
-    <content type="text"><![CDATA[“有些故事还没讲完那就算了吧，那些心情在岁月中已经难辨真假。” ——朴树《那些花儿》]]></content>
+    <title><![CDATA[categories]]></title>
+    <url>%2Fcategories%2Findex.html</url>
+    <content type="text"></content>
   </entry>
   <entry>
     <title><![CDATA[tags]]></title>
@@ -70,8 +70,8 @@
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
-    <content type="text"></content>
+    <title><![CDATA[about]]></title>
+    <url>%2Fabout%2Findex.html</url>
+    <content type="text"><![CDATA[“有些故事还没讲完那就算了吧，那些心情在岁月中已经难辨真假。” ——朴树《那些花儿》]]></content>
   </entry>
 </search>
