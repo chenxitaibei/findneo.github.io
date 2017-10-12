@@ -586,6 +586,23 @@
 
           
   <div class="comments" id="comments">
+      
+	  <div id="container"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+		  id: 'location.href', // 可选。默认为 location.href
+		  owner: 'findneo',
+		  repo: 'findneo.github.io',
+		  oauth: {
+		  client_id: '0994e65d6a4d6ee1b469',
+		  client_secret: '0032cf6e21ebb723048f3abfd170be6c87e40095',
+		  },
+		})
+		gitment.render('container')
+		</script>
+		
     
   </div>
 
@@ -661,7 +678,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -706,7 +723,7 @@
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://chybeta.github.io/" title="CHYbeta" target="_blank">CHYbeta</a>
+                  <a href="https://chybeta.github.io/" title="Chybeta" target="_blank">Chybeta</a>
                 </li>
               
                 <li class="links-of-blogroll-item">

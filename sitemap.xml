@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://findneo.github.io/about/index.html</loc>
+    
+    <lastmod>2017-10-12T10:36:59.521Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://findneo.github.io/2017/09/hexo-config/</loc>
     
-    <lastmod>2017-10-08T08:28:49.183Z</lastmod>
+    <lastmod>2017-10-12T08:21:36.876Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>https://findneo.github.io/2017/10/nupt-zonghe2/</loc>
     
     <lastmod>2017-10-06T15:13:23.571Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://findneo.github.io/about/index.html</loc>
-    
-    <lastmod>2017-09-24T06:39:29.943Z</lastmod>
     
   </url>
   

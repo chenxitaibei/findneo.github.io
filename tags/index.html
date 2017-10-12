@@ -305,7 +305,7 @@
         
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-                目前共计 6 个标签
+                目前共计 7 个标签
             </div>
             <div class="tag-cloud-tags">
               <a href="/tags/Batch/" style="font-size: 12px; color: #ccc">Batch</a> <a href="/tags/code/" style="font-size: 12px; color: #ccc">code</a> <a href="/tags/ctf/" style="font-size: 30px; color: #111">ctf</a> <a href="/tags/hacklife/" style="font-size: 21px; color: #6f6f6f">hacklife</a> <a href="/tags/sqli/" style="font-size: 12px; color: #ccc">sqli</a> <a href="/tags/密码学/" style="font-size: 12px; color: #ccc">密码学</a>
@@ -329,6 +329,23 @@
 
           
   <div class="comments" id="comments">
+      
+	  <div id="container"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+		  id: 'location.href', // 可选。默认为 location.href
+		  owner: 'findneo',
+		  repo: 'findneo.github.io',
+		  oauth: {
+		  client_id: '0994e65d6a4d6ee1b469',
+		  client_secret: '0032cf6e21ebb723048f3abfd170be6c87e40095',
+		  },
+		})
+		gitment.render('container')
+		</script>
+		
     
   </div>
 
@@ -395,7 +412,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -440,7 +457,7 @@
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://chybeta.github.io/" title="CHYbeta" target="_blank">CHYbeta</a>
+                  <a href="https://chybeta.github.io/" title="Chybeta" target="_blank">Chybeta</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
