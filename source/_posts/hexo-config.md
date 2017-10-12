@@ -963,7 +963,7 @@ fi
 git push
 ```
 
-#### emmm,重装系统了
+### emmm,重装系统了
 
 ```shell
 从头开始，安装git fro windows，配置ssh
@@ -977,7 +977,7 @@ ssh -T git@github.com 验证ssh可用
 git clone https://github.com/findneo/findneo.github.io.git
 cd findneo.github.io
 git checkout -b bakeup 
-新建备份分支并设为默认分支，因为后面只手动操作这个分支，master分支有hexo-deployer-git自动操作 
+新建备份分支并设为默认分支，因为后面只手动操作这个分支，master分支由hexo-deployer-git自动操作 
 hexo init tmp
 cp -a tmp/* ./
 rm -rf tmp
@@ -987,7 +987,7 @@ npm install --save hexo-generator-sitemap
 npm install --save hexo-generator-searchdb
 npm i --save hexo-wordcount
 -------------------------------------	
-在站点配置文件中配置git-deployer为naster分支
+在站点配置文件中配置git-deployer为master分支
 git add . 
 git commit -m "..." 
 git push origin bakeup
@@ -996,8 +996,10 @@ hexo d -g
 
 参考了[这位朋友](https://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more)的备份方法，很棒，(๑•̀ㅂ•́)و✧。
 
-重装发现真正离不开的软件有这么些。
+列个软件清单：
 
 ---
 
-WSL、[everything](http://www.voidtools.com/)、 [Typora](https://www.typora.io/#windows) 、shadow socks、chrome、firefox、notepad++ 、[一键上网脚本](https://findneo.github.io/2017/10/cmd-surfnet/)、 sublime、印象笔记、python2/3、git for windows、vmware/kali/win7、AgentRansack、7z，射手影音，SumatraPDF，好吧，微软办公系列
+WSL、[everything](http://www.voidtools.com/)、 [Typora](https://www.typora.io/#windows) 、shadow socks、chrome、firefox、notepad++ 、[一键上网脚本](https://findneo.github.io/2017/10/cmd-surfnet/)、 sublime、印象笔记、python2/3、git for windows、vmware/kali/win7、AgentRansack、7z、射手影音、SumatraPDF、~~微软办公系列~~ [WPS Office 2013 个人版](http://xianshuhua2.blog.163.com/blog/static/99760751201362854753660/) 、IObitUninstaller、snipaste
+
+burpsuite、fiddler、wireshark、nmap、sqlmap、winhex、ziperello、weevely、winhex、御剑、awvs

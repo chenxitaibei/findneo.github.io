@@ -96,3 +96,9 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+  
+gitment: 
+    owner: findneo
+    commentrepo: findneo.github.io
+    clientid: 0994e65d6a4d6ee1b469
+    clientsecret: 0032cf6e21ebb723048f3abfd170be6c87e40095

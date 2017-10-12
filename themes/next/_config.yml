@@ -116,13 +116,12 @@ links_title: Links
 links_layout: inline
 links:
   XMU-Ph0en1x: https://ph0en1x.com/
-  CHYbeta: https://chybeta.github.io/
+  Chybeta: https://chybeta.github.io/
   lzhtony: https://lxpark.com/
   Mads: http://blog.madsome.cn/
   中國哲學書電子化計劃: http://ctext.org/zh
   太极书馆: http://www.8bei8.com/
-
-
+  
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
