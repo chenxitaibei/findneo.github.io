@@ -32,10 +32,10 @@
       <div id="vcomments"></div>
 	  
 	{% elseif config.gitment.owner and config.gitment.commentrepo and config.gitment.clientid and config.gitment.clientsecret %}
-		  <div id="container"></div>
+		  <div id="gitmentContainer"></div>
 			<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 			<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-			<script>
+			<script type="text/javascript">
 			var gitment = new Gitment({
 			  id: '{{page.title}}',
 			  owner: '{{config.gitment.owner}}',
@@ -45,7 +45,7 @@
 			  client_secret: '{{config.gitment.clientsecret}}',
 			  },
 			})
-			gitment.render('container')
+			gitment.render('gitmentContainer')
 			</script>		
     {% endif %}
   </div>
