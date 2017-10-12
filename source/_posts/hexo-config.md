@@ -1003,3 +1003,40 @@ hexo d -g
 WSL、[everything](http://www.voidtools.com/)、 [Typora](https://www.typora.io/#windows) 、shadow socks、chrome、firefox、notepad++ 、[一键上网脚本](https://findneo.github.io/2017/10/cmd-surfnet/)、 sublime、印象笔记、python2/3、git for windows、vmware/kali/win7、AgentRansack、7z、射手影音、SumatraPDF、~~微软办公系列~~ [WPS Office 2013 个人版](http://xianshuhua2.blog.163.com/blog/static/99760751201362854753660/) 、IObitUninstaller、snipaste
 
 burpsuite、fiddler、wireshark、nmap、sqlmap、winhex、ziperello、weevely、winhex、御剑、awvs
+
+### 添加gitment作为评论系统
+
+项目介绍:https://imsun.net/posts/gitment-introduction/
+
+在 *findneo.github.io\themes\next\layout\_partials\comments.swig* 的倒数第二个endif前添加
+
+```javascript
+{% elseif config.gitment.owner and config.gitment.commentrepo and config.gitment.clientid and config.gitment.clientsecret %}
+		  <div id="gitmentContainer"></div>
+			<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+			<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+			<script type="text/javascript">
+			var gitment = new Gitment({
+			  id: '{{page.title}}',
+			  owner: '{{config.gitment.owner}}',
+			  repo: '{{config.gitment.commentrepo}}',
+			  oauth: {
+			  client_id: '{{config.gitment.clientid}}',
+			  client_secret: '{{config.gitment.clientsecret}}',
+			  },
+			})
+			gitment.render('gitmentContainer')
+			</script>
+```
+
+然后在站点配置文件末尾添加
+
+```php
+gitment: 
+    owner: findneo
+    commentrepo: findneo.github.io
+    clientid: a3407310dfbeafbfe55a
+    clientsecret: ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d
+```
+
+**需要注意的是每发布一篇文章都需要把该页面初始化一下其他人才可以评论，这是因为评论基于issue，并不是bug**

@@ -4,7 +4,7 @@ date: 2017-09-24 11:06:34
 description: 这是个不错的平台，学到了一些，也发现了更多需要深入学习的东西。
 categories: writeup
 keywords: writeup,南邮,ctf,nupt,findneo
-tags: [ctf ]
+tags: [ctf]
 
 ---
 
