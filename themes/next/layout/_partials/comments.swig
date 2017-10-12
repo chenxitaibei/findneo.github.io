@@ -32,21 +32,23 @@
       <div id="vcomments"></div>
 	  
 	{% elseif config.gitment.owner and config.gitment.commentrepo and config.gitment.clientid and config.gitment.clientsecret %}  
-	  <div id="container"></div>
-		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-		<script>
-		var gitment = new Gitment({
-		  id: 'location.href', // 可选。默认为 location.href
-		  owner: '{{config.gitment.owner}}',
-		  repo: '{{config.gitment.commentrepo}}',
-		  oauth: {
-		  client_id: '{{config.gitment.clientid}}',
-		  client_secret: '{{config.gitment.clientsecret}}',
-		  },
-		})
-		gitment.render('container')
-		</script>
+	  <p>
+		  <div id="container"></div>
+			<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+			<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+			<script>
+			var gitment = new Gitment({
+			  id: '{{page.title}}',
+			  owner: '{{config.gitment.owner}}',
+			  repo: '{{config.gitment.commentrepo}}',
+			  oauth: {
+			  client_id: '{{config.gitment.clientid}}',
+			  client_secret: '{{config.gitment.clientsecret}}',
+			  },
+			})
+			gitment.render('container')
+			</script>
+	  </p>
 		
     {% endif %}
   </div>
