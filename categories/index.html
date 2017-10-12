@@ -330,6 +330,22 @@
           
   <div class="comments" id="comments">
     
+		  <div id="gitmentContainer"></div>
+			<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+			<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+			<script type="text/javascript">
+			var gitment = new Gitment({
+			  id: 'categories',
+			  owner: 'findneo',
+			  repo: 'findneo.github.io',
+			  oauth: {
+			  client_id: 'a3407310dfbeafbfe55a',
+			  client_secret: 'ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d',
+			  },
+			})
+			gitment.render('gitmentContainer')
+			</script>		
+    
   </div>
 
 

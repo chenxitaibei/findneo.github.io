@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="findneo">
 <meta property="og:description" content="或许，记录在印象笔记和在博客会有不同，但是究竟，不同在哪里呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-12T08:21:36.876Z">
+<meta property="og:updated_time" content="2017-10-12T12:53:48.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客搭建与自定义">
 <meta name="twitter:description" content="或许，记录在印象笔记和在博客会有不同，但是究竟，不同在哪里呢？">
@@ -378,7 +378,7 @@
                 </span>
                 
                 <span title="字数统计">
-                  3,720
+                  3,906
                 </span>
               
 
@@ -392,7 +392,7 @@
                 </span>
                 
                 <span title="阅读时长">
-                  21
+                  22
                 </span>
               
             </div>
@@ -441,6 +441,12 @@
 <hr>
 <p>WSL、<a href="http://www.voidtools.com/" target="_blank" rel="external">everything</a>、 <a href="https://www.typora.io/#windows" target="_blank" rel="external">Typora</a> 、shadow socks、chrome、firefox、notepad++ 、<a href="https://findneo.github.io/2017/10/cmd-surfnet/">一键上网脚本</a>、 sublime、印象笔记、python2/3、git for windows、vmware/kali/win7、AgentRansack、7z、射手影音、SumatraPDF、<del>微软办公系列</del> <a href="http://xianshuhua2.blog.163.com/blog/static/99760751201362854753660/" target="_blank" rel="external">WPS Office 2013 个人版</a> 、IObitUninstaller、snipaste</p>
 <p>burpsuite、fiddler、wireshark、nmap、sqlmap、winhex、ziperello、weevely、winhex、御剑、awvs</p>
+<h3 id="添加gitment作为评论系统"><a href="#添加gitment作为评论系统" class="headerlink" title="添加gitment作为评论系统"></a>添加gitment作为评论系统</h3><p>项目介绍:<a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">https://imsun.net/posts/gitment-introduction/</a></p>
+<p>在 <em>findneo.github.io\themes\next\layout_partials\comments.swig</em> 的倒数第二个endif前添加</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;% elseif config.gitment.owner and config.gitment.commentrepo and config.gitment.clientid and config.gitment.clientsecret %&#125;</div><div class="line">		  &lt;div id=<span class="string">"gitmentContainer"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">			&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://imsun.github.io/gitment/style/default.css"</span>&gt;</div><div class="line">			&lt;script src=<span class="string">"https://imsun.github.io/gitment/dist/gitment.browser.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">			&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">			<span class="keyword">var</span> gitment = <span class="keyword">new</span> Gitment(&#123;</div><div class="line">			  id: <span class="string">'&#123;&#123;page.title&#125;&#125;'</span>,</div><div class="line">			  owner: <span class="string">'&#123;&#123;config.gitment.owner&#125;&#125;'</span>,</div><div class="line">			  repo: <span class="string">'&#123;&#123;config.gitment.commentrepo&#125;&#125;'</span>,</div><div class="line">			  oauth: &#123;</div><div class="line">			  client_id: <span class="string">'&#123;&#123;config.gitment.clientid&#125;&#125;'</span>,</div><div class="line">			  client_secret: <span class="string">'&#123;&#123;config.gitment.clientsecret&#125;&#125;'</span>,</div><div class="line">			  &#125;,</div><div class="line">			&#125;)</div><div class="line">			gitment.render(<span class="string">'gitmentContainer'</span>)</div><div class="line">			&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<p>然后在站点配置文件末尾添加</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gitment: </div><div class="line">    owner: findneo</div><div class="line">    commentrepo: findneo.github.io</div><div class="line">    clientid: a3407310dfbeafbfe55a</div><div class="line">    clientsecret: ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d</div></pre></td></tr></table></figure>
+<p><strong>需要注意的是每发布一篇文章都需要把该页面初始化一下其他人才可以评论，这是因为评论基于issue，并不是bug</strong></p>
 
       
     </div>
@@ -534,6 +540,22 @@
 
           
   <div class="comments" id="comments">
+    
+		  <div id="gitmentContainer"></div>
+			<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+			<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+			<script type="text/javascript">
+			var gitment = new Gitment({
+			  id: '博客搭建与自定义',
+			  owner: 'findneo',
+			  repo: 'findneo.github.io',
+			  oauth: {
+			  client_id: 'a3407310dfbeafbfe55a',
+			  client_secret: 'ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d',
+			  },
+			})
+			gitment.render('gitmentContainer')
+			</script>		
     
   </div>
 
@@ -692,7 +714,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo本地搭建可访问博客"><span class="nav-number">1.</span> <span class="nav-text">hexo本地搭建可访问博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义博客样式"><span class="nav-number">2.</span> <span class="nav-text">自定义博客样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#blog-config-yml"><span class="nav-number">2.1.</span> <span class="nav-text">blog/_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#blog-themes-next-config-yml"><span class="nav-number">2.2.</span> <span class="nav-text">blog/themes/next/_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版权声明-，参考"><span class="nav-number">2.3.</span> <span class="nav-text">版权声明 ，参考</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#blog-themes-next-layout-macro-post-copyright-swig"><span class="nav-number">2.3.1.</span> <span class="nav-text">blog\themes\next\layout_macro\post-copyright.swig</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#blog-themes-next-languages-zh-Hans-yml"><span class="nav-number">2.3.2.</span> <span class="nav-text">blog\themes\next\languages\zh-Hans.yml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章模板-blog-scaffolds-post-md"><span class="nav-number">2.4.</span> <span class="nav-text">文章模板 blog\scaffolds\post.md</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将博客发布到GitHub-page"><span class="nav-number">3.</span> <span class="nav-text">将博客发布到GitHub page</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网站内容发布"><span class="nav-number">3.1.</span> <span class="nav-text">网站内容发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发内容与配置文件备份"><span class="nav-number">3.2.</span> <span class="nav-text">开发内容与配置文件备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emmm-重装系统了"><span class="nav-number">4.</span> <span class="nav-text">emmm,重装系统了</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo本地搭建可访问博客"><span class="nav-number">1.</span> <span class="nav-text">hexo本地搭建可访问博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义博客样式"><span class="nav-number">2.</span> <span class="nav-text">自定义博客样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#blog-config-yml"><span class="nav-number">2.1.</span> <span class="nav-text">blog/_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#blog-themes-next-config-yml"><span class="nav-number">2.2.</span> <span class="nav-text">blog/themes/next/_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版权声明-，参考"><span class="nav-number">2.3.</span> <span class="nav-text">版权声明 ，参考</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#blog-themes-next-layout-macro-post-copyright-swig"><span class="nav-number">2.3.1.</span> <span class="nav-text">blog\themes\next\layout_macro\post-copyright.swig</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#blog-themes-next-languages-zh-Hans-yml"><span class="nav-number">2.3.2.</span> <span class="nav-text">blog\themes\next\languages\zh-Hans.yml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章模板-blog-scaffolds-post-md"><span class="nav-number">2.4.</span> <span class="nav-text">文章模板 blog\scaffolds\post.md</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将博客发布到GitHub-page"><span class="nav-number">3.</span> <span class="nav-text">将博客发布到GitHub page</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网站内容发布"><span class="nav-number">3.1.</span> <span class="nav-text">网站内容发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发内容与配置文件备份"><span class="nav-number">3.2.</span> <span class="nav-text">开发内容与配置文件备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emmm-重装系统了"><span class="nav-number">4.</span> <span class="nav-text">emmm,重装系统了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加gitment作为评论系统"><span class="nav-number">5.</span> <span class="nav-text">添加gitment作为评论系统</span></a></li></ol></div>
             
 
           </div>
