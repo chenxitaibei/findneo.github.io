@@ -31,8 +31,7 @@
     {% elseif theme.valine.appid and theme.valine.appkey %}
       <div id="vcomments"></div>
 	  
-	{% elseif config.gitment.owner and config.gitment.commentrepo and config.gitment.clientid and config.gitment.clientsecret %}  
-	  <p>
+	{% elseif config.gitment.owner and config.gitment.commentrepo and config.gitment.clientid and config.gitment.clientsecret %}
 		  <div id="container"></div>
 			<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 			<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
@@ -47,9 +46,7 @@
 			  },
 			})
 			gitment.render('container')
-			</script>
-	  </p>
-		
+			</script>		
     {% endif %}
   </div>
 {% endif %}
