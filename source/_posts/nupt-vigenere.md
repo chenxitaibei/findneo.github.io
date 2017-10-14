@@ -7,8 +7,6 @@ keywords: Vigenere,writeup,ctf,南邮,nupt,Crypto,密码学,findneo
 description: 题目挺不错的，实打实，没脑洞，也锻炼了使用python的能力。
 ---
 
-*本文表述基于个人理解，谬误在所难免，欢迎邮件交流。*
-
 ### 题目
 
 >  It is said that Vigenere cipher does not achieve the perfect secrecy actually :-)
