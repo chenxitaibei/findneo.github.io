@@ -1,6 +1,6 @@
 ---
 title: burpsuite-usage
-tags: tool
+tags: 
 ---
 
 ### 综述

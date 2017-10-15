@@ -1,19 +1,21 @@
 ---
-title: cool-python-singleline
-tags:
+title: python-snippets
+tags: [python ]
+date: 2017-10-15 16:45:21
+categories: code
+description: 记录一些平时用python写的代码段。
 ---
 
-记录一些平时写的python代码段。
+### 栅栏密码加解密
 
-##### 栅栏密码加解密
-
-单行版本
+#### 单行版本
 
 ```python
 railFence = lambda s: [[i, ''.join([s[k * i + j] for j in range(i) for k in range(len(s) / i)])] for i in range(1, len(s)) if not len(s) % i]
+print railFence('some thing to deal with')
 ```
 
-正常版本
+#### 正常版本
 
 ```python
 def railFence(s):
@@ -30,18 +32,18 @@ def railFence(s):
 
 
 print railFence('some thing to deal with')
-
 ```
 
-##### 凯撒密码加解密
+### 凯撒密码加解密
 
-单行版本
+#### 单行版本
 
 ```python
 def caesar(s): return [[off, ''.join([chr((ord(i) - 97 + off) % 26 + 97) if 'a' <= i <= 'z' else chr((ord(i) - 65 + off) % 26 + 65) if 'A' <= i <= 'Z' else i for i in str(s)])] for off in range(26)]
+print caesar('some thing to deal with')
 ```
 
-正常版本
+#### 正常版本
 
 ```python
 def caesar(s):
@@ -63,10 +65,11 @@ def caesar(s):
 print caesar('some thing to deal with')
 ```
 
-#### 莫尔斯电码加解密
+### 莫尔斯电码加解密
 
 ```python
 # coding: utf8
+# by https://findneo.github.io
 import re
 morseChart = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.',
               '....', '..', '.---', '-.-', '.-..', '--', '-.',
@@ -86,14 +89,14 @@ alphaChart = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
               '.', ',', '?', '-', "'", ':', '"', '/', '@',
               ';', '=', '!', '_', '(', ')', '$', '&', '+', ' ', '#']
 c = [morseChart, alphaChart]
-# {c[1][i]: c[0][i] for i in xrange(len(c[0]))}
+# 字典：{c[1][i]: c[0][i] for i in xrange(len(c[0]))}
 
 
 def morse(s):
     s = s.lower()  # 转为小写
     # 将无法处理的替换为'#'，在莫尔斯密码中体现为'*'
     s = re.sub('[^a-z0-9.,?\-\':"/@;=!_()$&+ ]', '#', s)
-    s = re.sub('\s+', ' ', s)  # 将多空格变为单一空格，无法处理词间分隔
+    s = re.sub('\s+', ' ', s)  # 将多空格变为单一空格，故无法处理词间分隔
     m = 1
     if not re.match('[^-._ ]', s):
         s = s.replace('_', '-')
@@ -107,7 +110,7 @@ print morse('0123456789!abcdef')
 print morse('----- .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -.-.-- .- -... -.-. -.. . ..-.')
 ```
 
-##### base家族混合编码fuzz
+### base家族混合编码fuzz
 
 ```python
 from base64 import b64decode, b32decode, b16decode
@@ -133,5 +136,5 @@ print basefuzz('UjFrelJFMVJXbGRIUlRORVQwNHlRMGRaTTBSTlVWcFVSMUV6UkU5T1MwZEhUVmxV
 
 ```
 
-随机多重加密（见[南邮CTF平台练习题](https://findneo.github.io/2017/09/nupt-ctf-writeup/#mixed-base64) ）
+随机多重base加密（见[南邮CTF平台练习题](https://findneo.github.io/2017/09/nupt-ctf-writeup/#mixed-base64) ）
 
