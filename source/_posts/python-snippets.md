@@ -1,5 +1,5 @@
 ---
-title: python-snippets
+title: python代码段
 tags: [python ]
 date: 2017-10-15 16:45:21
 categories: code
