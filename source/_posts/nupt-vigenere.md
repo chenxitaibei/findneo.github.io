@@ -3,7 +3,8 @@ title: 南邮CTF平台 Vigenere writeup
 tags: [ctf , 密码学 ]
 date: 2017-10-05 19:40:09
 categories: writeup
-keywords: Vigenere,writeup,ctf,南邮,nupt,Crypto,密码学,findneo
+comments: true
+original: true
 description: 题目挺不错的，实打实，没脑洞，也锻炼了使用python的能力。
 ---
 

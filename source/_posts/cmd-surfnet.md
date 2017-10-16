@@ -3,7 +3,8 @@ title: 命令行拨号上网
 tags: [hacklife , code ,Batch]
 date: 2017-10-03 23:52:02
 categories:  备忘
-keywords: cmd,PPPoE,findneo
+comments: false
+original: true
 description: 解放鼠标，从命令行连接与断开网络
 ---
 
