@@ -97,8 +97,8 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
   
-gitment: 
-    owner: findneo
-    commentrepo: findneo.github.io
-    clientid: a3407310dfbeafbfe55a
-    clientsecret: ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d
+#gitment: 
+    #owner: findneo
+    #commentrepo: findneo.github.io
+    #clientid: a3407310dfbeafbfe55a
+    #clientsecret: ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d

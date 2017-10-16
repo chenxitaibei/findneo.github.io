@@ -1,1 +1,3 @@
 0000000000000000000000000000000000000000 185f34d5173b68f828f76a690d691038907c66ca findneo <dfindneo@gmail.com> 1508138624 -0700	clone: from git@github.com:iissnan/hexo-theme-next.git
+185f34d5173b68f828f76a690d691038907c66ca eb07457d6f104a2ad503055a4892ffa1c1f9f812 findneo <dfindneo@gmail.com> 1508144447 -0700	commit: add ico and customise next_config.yml
+eb07457d6f104a2ad503055a4892ffa1c1f9f812 745aa3fc7f9adf13d4b371b97f803cbd3bff627c findneo <dfindneo@gmail.com> 1508144848 -0700	commit: add original control via modifying themes\next\layout\_macro\post-copyright.swig
