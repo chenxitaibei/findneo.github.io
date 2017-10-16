@@ -86,7 +86,7 @@ index_with_subtitle: false
 menu:
   # uncomment about,tags,categories
   home: / || home
-  about: /about/ || user
+  #about: /about/ || user
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
@@ -139,11 +139,16 @@ social_icons:
 # Blog rolls
 links_icon: link
 links_title: Links
-links_layout: block
-#links_layout: inline
+#links_layout: block
+links_layout: inline
 links: #links:
-  中國哲學書電子化計劃: http://ctext.org/zh       #Title: http://example.com/
+  Chybeta: https://chybeta.github.io/  #Title: http://example.com/
+  lzhtony: https://lxpark.com/
+  Mads: https://blog.madsome.cn/
   太极书馆: http://www.8bei8.com/ 
+  中國哲學書電子化計劃: http://ctext.org/zh       
+  
+  
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
@@ -191,7 +196,7 @@ sidebar:
   scrollpercent: false
 
   # Enable sidebar on narrow view (only for Muse | Mist).
-  onmobile: false
+  onmobile: true
 
 
 # ---------------------------------------------------------------
@@ -455,7 +460,7 @@ needmoreshare2:
 google_site_verification: DIw_ok_t9Td1khsrivxwUFgeuh-vsLcA4tuqP4vJKI4
 
 # Google Analytics
-google_analytics: UA-108097027-1
+#google_analytics: UA-108097027-1
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
