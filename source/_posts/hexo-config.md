@@ -1041,3 +1041,14 @@ gitment:
 ```
 
 **需要注意的是每发布一篇文章都需要把该页面初始化一下其他人才可以评论，这是因为评论基于issue，并不是bug**
+
+### 单独控制每篇文章版权声明
+
+给 `themes\next\layout\_macro\post-copyright.swig` 加上控制流程，通过每个post的 front-matter控制，遇到想不加版权声明的文章就在头部加上 `notoriginal: true` 即可，不影响已有文章。
+
+```
+{% if not post.notoriginal %}
+foo
+{% endif %}
+```
+

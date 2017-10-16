@@ -4,7 +4,7 @@ tags: [python ]
 date: 2017-10-15 16:45:21
 categories: code
 comments: false
-description: 记录一些平时用python写的代码段。
+description: caeser,morse,rail-fence,base64
 ---
 
 ### 栅栏密码加解密
@@ -13,7 +13,7 @@ description: 记录一些平时用python写的代码段。
 
 ```python
 railFence = lambda s: [[i, ''.join([s[k * i + j] for j in range(i) for k in range(len(s) / i)])] for i in range(1, len(s)) if not len(s) % i]
-print railFence('some thing to deal with')
+print railFence('hello world , 2017 ! ')
 ```
 
 #### 正常版本
@@ -31,8 +31,9 @@ def railFence(s):
             res[i] = r
     return res
 
-
-print railFence('some thing to deal with')
+# test
+print railFence('hello world , 2017 ! ')
+# {1: 'hello world , 2017 ! ', 3: 'hlwl,0 eood 1!l r 27 ', 7: 'ho2er0ll1ld7o   ,!w  '}
 ```
 
 ### 凯撒密码加解密
@@ -41,7 +42,7 @@ print railFence('some thing to deal with')
 
 ```python
 def caesar(s): return [[off, ''.join([chr((ord(i) - 97 + off) % 26 + 97) if 'a' <= i <= 'z' else chr((ord(i) - 65 + off) % 26 + 65) if 'A' <= i <= 'Z' else i for i in str(s)])] for off in range(26)]
-print caesar('some thing to deal with')
+print caesar('h3llo')
 ```
 
 #### 正常版本
@@ -59,83 +60,118 @@ def caesar(s):
                 r += chr((ord(i) - ord('A') + offset) % cycle + ord('A'))
             else:
                 r += i
-        res.append(r)
+        res.append([offset, r])
     return res
 
-
-print caesar('some thing to deal with')
+# test
+print caesar('h3llo')
+#[  [0, 'h3llo'], [1, 'i3mmp'], [2, 'j3nnq'], [3, 'k3oor'], [4, 'l3pps'], [5, 'm3qqt'], [6, 'n3rru'], [7, 'o3ssv'],
+#   [8, 'p3ttw'], [9, 'q3uux'], [10, 'r3vvy'], [11, 's3wwz'], [12, 't3xxa'], [13, 'u3yyb'], [14, 'v3zzc'],
+#   [15, 'w3aad'], [16, 'x3bbe'], [17, 'y3ccf'], [18, 'z3ddg'], [19, 'a3eeh'], [20, 'b3ffi'], [21, 'c3ggj'],
+#   [22, 'd3hhk'], [23, 'e3iil'], [24, 'f3jjm'], [25, 'g3kkn']]
 ```
 
 ### 莫尔斯电码加解密
 
 ```python
-# coding: utf8
-# by https://findneo.github.io
 import re
-morseChart = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.',
-              '....', '..', '.---', '-.-', '.-..', '--', '-.',
-              '---', '.--.', '--.-', '.-.', '...', '-', '..-',
-              '...-', '.--', '-..-', '-.--', '--..', '-----',
-              '.----', '..---', '...--', '....-', '.....',
-              '-....', '--...', '---..', '----.', '.-.-.-',
-              '--..--', '..--..', '-....-', '.----.', '---...',
-              '.-..-.', '-..-.', '.--.-.', '-.-.-.', '-...-',
-              '-.-.--', '..--.-', '-.--.', '-.--.-', '...-..-',
-              '.-...', '.-.-.', ' ', '*']
-
-alphaChart = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-              'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-              's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0',
-              '1', '2', '3', '4', '5', '6', '7', '8', '9',
-              '.', ',', '?', '-', "'", ':', '"', '/', '@',
-              ';', '=', '!', '_', '(', ')', '$', '&', '+', ' ', '#']
-c = [morseChart, alphaChart]
-# 字典：{c[1][i]: c[0][i] for i in xrange(len(c[0]))}
 
 
 def morse(s):
-    s = s.lower()  # 转为小写
-    # 将无法处理的替换为'#'，在莫尔斯密码中体现为'*'
+    morseChart = ['.-',       '-...',     '-.-.',     '-..',      '.',        '..-.',     '--.',
+                  '....',     '..',       '.---',     '-.-',      '.-..',     '--',       '-.',
+                  '---',      '.--.',     '--.-',     '.-.',      '...',      '-',        '..-',
+                  '...-',     '.--',      '-..-',     '-.--',     '--..',     '-----',    '.----',
+                  '..---',    '...--',    '....-',    '.....',    '-....',    '--...',    '---..',
+                  '----.',    '.-.-.-',   '--..--',   '..--..',   '-....-',   '.----.',   '---...',
+                  '.-..-.',   '-..-.',    '.--.-.',   '-.-.-.',   '-...-',    '-.-.--',   '..--.-',
+                  '-.--.',    '-.--.-',   '...-..-',  '.-...',    '.-.-.',    ' ',        '*'
+                  ]
+    alphaChart = ['a',        'b',        'c',        'd',        'e',        'f',        'g',
+                  'h',        'i',        'j',        'k',        'l',        'm',        'n',
+                  'o',        'p',        'q',        'r',        's',        't',        'u',
+                  'v',        'w',        'x',        'y',        'z',        '0',        '1',
+                  '2',        '3',        '4',        '5',        '6',        '7',        '8',
+                  '9',        '.',        ',',        '?',        '-',        "'",        ':',
+                  '"',        '/',        '@',        ';',        '=',        '!',        '_',
+                  '(',        ')',        '$',        '&',        '+',        ' ',        '#'
+                  ]
+
+    # or as a dict ->  {c[1][i]: c[0][i] for i in xrange(len(c[0]))}
+    c = [morseChart, alphaChart]
+
+    s = s.lower()
+
+    # replace characters not in alphaChart with '#' ,which shall be '*' in
+    # encoded string
     s = re.sub('[^a-z0-9.,?\-\':"/@;=!_()$&+ ]', '#', s)
-    s = re.sub('\s+', ' ', s)  # 将多空格变为单一空格，故无法处理词间分隔
-    m = 1
+
+    # for convenience sake, I choose not to deal with space in morse.
+    s = re.sub('\s+', ' ', s)
+
+    m = 1  # default to decode
+    # if mot mismatch that condition,we are to encode.
     if not re.match('[^-._ ]', s):
+        # occasionally we meet [ ._]+ instead of [ .-]+
         s = s.replace('_', '-')
         s = re.split(' ', s)
-        m = 0
+        m = 0  # we are  to encode by morse
+
     r = []
+    # list().extend(foo) returns None so we use 'or r'
     return (m * ' ').join(r.extend([c[1 - m][c[m].index(i)] for i in s]) or r)
 
-
-print morse('0123456789!abcdef')
-print morse('----- .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -.-.-- .- -... -.-. -.. . ..-.')
+# test
+print morse('Hello word,2017!')
+print morse('.... . .-.. .-.. ---   .-- --- .-. -.. --..-- ..--- ----- .---- --... -.-.--')
 ```
 
-### base家族混合编码fuzz
+### base64混合编码
 
 ```python
-from base64 import b64decode, b32decode, b16decode
+from base64 import *
+import random
+
+
+def baseRandomEncode(s, depth=3):
+    for i in xrange(depth):
+        s = random.choice([b64encode, b32encode, b16encode])(s)
+    return s
+
+
+print baseRandomEncode('hello world!')  # test
+```
+
+### base64混合解码
+
+```python
+from base64 import *
+import re
+
+
 res = []
+# repattern is a self-defining item.
+# In CTF games,flag often comes as a printable string containing  '{' and '}'.
+repattern = "[ -~]*{[ -~]*}[ -~]*|[ -~]*}[ -~]*{[ -~]*"
 
 
-def basefuzz(s):
+def basefuzzDecode(s):
     global res
     for f in [b64decode, b32decode, b16decode]:
         try:
             t = f(s)
-            if '{' in t and '}' in t:
+            if re.match(repattern, t):
                 res.append(t)
                 return 0
             else:
-                basefuzz(t)
+                basefuzzDecode(t)
         except:
             pass
     return res
 
 
-print basefuzz('UjFrelJFMVJXbGRIUlRORVQwNHlRMGRaTTBSTlVWcFVSMUV6UkU5T1MwZEhUVmxVUzFKU1ZVZEpXbFJKVGxwVVIxa3lWRXRTVWxkSVJWcFVSMDVMUjBkVk0wUkhUVnBZUjBrelZGTk9TMGRIVFRSVVRWSlNWMGxaTTBSSlRqSkY=')
-
+print basefuzzDecode(baseRandomEncode('flag{hello ctf!}'))  # test
 ```
 
-随机多重base加密（见[南邮CTF平台练习题](https://findneo.github.io/2017/09/nupt-ctf-writeup/#mixed-base64) ）
+
 
