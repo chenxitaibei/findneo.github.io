@@ -4,7 +4,6 @@ tags: [hacklife]
 date: 2017-09-26 18:29:02
 categories: 备忘 
 comments: false
-original: true
 description: 或许，记录在印象笔记和在博客会有不同，但是究竟，不同在哪里呢？
 ---
 
@@ -986,6 +985,7 @@ npm install --save hexo-deployer-git
 npm install --save hexo-generator-baidu-sitemap
 npm install --save hexo-generator-sitemap
 npm install --save hexo-generator-searchdb
+npm install --save hexo-generator-feed 
 npm i --save hexo-wordcount
 -------------------------------------	
 在站点配置文件中配置git-deployer为master分支

@@ -4,8 +4,8 @@
 
 # Site
 title: findneo
-subtitle: the quieter you become, the more you are able to hear.
-description: findneo的博客，关注网络安全
+subtitle: 
+description: #the quieter you become, the more you are able to hear.
 author: findneo
 language: zh-Hans
 timezone: Asia/Shanghai
