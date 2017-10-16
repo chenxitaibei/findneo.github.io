@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="findneo">
 <meta property="og:description" content="或许，记录在印象笔记和在博客会有不同，但是究竟，不同在哪里呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-16T10:04:30.000Z">
+<meta property="og:updated_time" content="2017-10-16T08:24:14.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客搭建与自定义">
 <meta name="twitter:description" content="或许，记录在印象笔记和在博客会有不同，但是究竟，不同在哪里呢？">
@@ -443,6 +443,8 @@
 <p>然后在站点配置文件末尾添加</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gitment: </div><div class="line">    owner: findneo</div><div class="line">    commentrepo: findneo.github.io</div><div class="line">    clientid: a3407310dfbeafbfe55a</div><div class="line">    clientsecret: ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d</div></pre></td></tr></table></figure>
 <p><strong>需要注意的是每发布一篇文章都需要把该页面初始化一下其他人才可以评论，这是因为评论基于issue，并不是bug</strong></p>
+<h3 id="单独控制每篇文章版权声明"><a href="#单独控制每篇文章版权声明" class="headerlink" title="单独控制每篇文章版权声明"></a>单独控制每篇文章版权声明</h3><p>给 <code>themes\next\layout\_macro\post-copyright.swig</code> 加上控制流程，通过每个post的 front-matter控制，遇到想不加版权声明的文章就在头部加上 <code>notoriginal: true</code> 即可，不影响已有文章。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% if not post.notoriginal %&#125;</div><div class="line">foo</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -677,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo本地搭建可访问博客"><span class="nav-number">1.</span> <span class="nav-text">hexo本地搭建可访问博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义博客样式"><span class="nav-number">2.</span> <span class="nav-text">自定义博客样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#blog-config-yml"><span class="nav-number">2.1.</span> <span class="nav-text">blog/_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#blog-themes-next-config-yml"><span class="nav-number">2.2.</span> <span class="nav-text">blog/themes/next/_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版权声明-，参考"><span class="nav-number">2.3.</span> <span class="nav-text">版权声明 ，参考</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#blog-themes-next-layout-macro-post-copyright-swig"><span class="nav-number">2.3.1.</span> <span class="nav-text">blog\themes\next\layout_macro\post-copyright.swig</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#blog-themes-next-languages-zh-Hans-yml"><span class="nav-number">2.3.2.</span> <span class="nav-text">blog\themes\next\languages\zh-Hans.yml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章模板-blog-scaffolds-post-md"><span class="nav-number">2.4.</span> <span class="nav-text">文章模板 blog\scaffolds\post.md</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将博客发布到GitHub-page"><span class="nav-number">3.</span> <span class="nav-text">将博客发布到GitHub page</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网站内容发布"><span class="nav-number">3.1.</span> <span class="nav-text">网站内容发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发内容与配置文件备份"><span class="nav-number">3.2.</span> <span class="nav-text">开发内容与配置文件备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emmm-重装系统了"><span class="nav-number">4.</span> <span class="nav-text">emmm,重装系统了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加gitment作为评论系统"><span class="nav-number">5.</span> <span class="nav-text">添加gitment作为评论系统</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo本地搭建可访问博客"><span class="nav-number">1.</span> <span class="nav-text">hexo本地搭建可访问博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义博客样式"><span class="nav-number">2.</span> <span class="nav-text">自定义博客样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#blog-config-yml"><span class="nav-number">2.1.</span> <span class="nav-text">blog/_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#blog-themes-next-config-yml"><span class="nav-number">2.2.</span> <span class="nav-text">blog/themes/next/_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版权声明-，参考"><span class="nav-number">2.3.</span> <span class="nav-text">版权声明 ，参考</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#blog-themes-next-layout-macro-post-copyright-swig"><span class="nav-number">2.3.1.</span> <span class="nav-text">blog\themes\next\layout_macro\post-copyright.swig</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#blog-themes-next-languages-zh-Hans-yml"><span class="nav-number">2.3.2.</span> <span class="nav-text">blog\themes\next\languages\zh-Hans.yml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章模板-blog-scaffolds-post-md"><span class="nav-number">2.4.</span> <span class="nav-text">文章模板 blog\scaffolds\post.md</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将博客发布到GitHub-page"><span class="nav-number">3.</span> <span class="nav-text">将博客发布到GitHub page</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网站内容发布"><span class="nav-number">3.1.</span> <span class="nav-text">网站内容发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发内容与配置文件备份"><span class="nav-number">3.2.</span> <span class="nav-text">开发内容与配置文件备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emmm-重装系统了"><span class="nav-number">4.</span> <span class="nav-text">emmm,重装系统了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加gitment作为评论系统"><span class="nav-number">5.</span> <span class="nav-text">添加gitment作为评论系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单独控制每篇文章版权声明"><span class="nav-number">6.</span> <span class="nav-text">单独控制每篇文章版权声明</span></a></li></ol></div>
             
 
           </div>
@@ -1201,6 +1203,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.3"></script>
+
 
   
 
