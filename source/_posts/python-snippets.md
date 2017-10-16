@@ -3,6 +3,7 @@ title: python代码段
 tags: [python ]
 date: 2017-10-15 16:45:21
 categories: code
+original: false
 description: 记录一些平时用python写的代码段。
 ---
 
