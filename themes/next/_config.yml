@@ -85,7 +85,7 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   # uncomment about,tags,categories
-  home: / || home
+  #home: / || home
   #about: /about/ || user
   tags: /tags/ || tags
   categories: /categories/ || th
@@ -143,9 +143,12 @@ links_title: Links
 links_layout: inline
 links: #links:
   Chybeta: https://chybeta.github.io/  #Title: http://example.com/
+  CTF日历: https://ctftime.org/calendar/
   lzhtony: https://lxpark.com/
   Mads: https://blog.madsome.cn/
+  Ph0en1x: https://ph0en1x.com/
   太极书馆: http://www.8bei8.com/ 
+  维基文库: https://zh.wikisource.org/wiki/Wikisource:%E9%A6%96%E9%A1%B5
   中國哲學書電子化計劃: http://ctext.org/zh       
   
   
@@ -181,9 +184,9 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  #display: post
+  display: post
   #display: always
-  display: hide
+  #display: hide
   #display: remove
 
   # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).

