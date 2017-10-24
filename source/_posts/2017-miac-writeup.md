@@ -7,8 +7,7 @@ comments: false
 description: ┏ (゜ω゜)=☞  滑稽树上滑稽果 
 ---
 
-
-2017/10/14，miac。
+## 2017/10/14
 
 > http://miac.cug.edu.cn/
 >
@@ -61,4 +60,145 @@ rtt=tt[::-1]
 #栅栏密码的解密	synt{u3e3_l0h_ner_x3l}
 #凯撒密码解密 	flag{h3r3_y0u_are_k3y}
 ```
+
+
+
+---
+
+## 2017/10/23
+
+### WEB
+
+#### WEB签到
+
+> 签到，格式bdctf{xxxxx}
+> http://2a8a372c90b9c52b54ac9f85234f6f20.yogeit.com:8080
+
+```php
+ <?php
+highlight_file('flag.php');
+$_GET['id'] = urldecode($_GET['id']);
+$flag = 'bdctf{xxxxxxxxxxxxxxxxxx}';
+if (isset($_GET['user']) and isset($_POST['pass'])) {
+    if ($_GET['user'] == $_POST['pass'])
+        print 'pass can not be user.';
+    else if (sha1($_GET['user']) === sha1($_POST['pass'])&($_GET['id']=='margin'))
+        die('Flag: '.$flag);
+    else
+        print 'sorry!';
+}
+?> 
+```
+
+对数组进行哈希会返回null，所以传进去两个数组即可。`Flag: bdctf{welcomeBDCTF2017}`
+
+![](web-checkin.png)
+
+#### 命令注入
+
+> 格式是flag{xxxx}
+> http://c3f534c3e77ef68bda72e406337023fb.yogeit.com:8080
+
+```php
+<?php 
+include "flag.php";
+error_reporting(0);
+show_source(__FILE__);
+$a = @$_REQUEST['hello'];
+eval("var_dump($a);");
+```
+
+直接执行系统命令，`system('cat flag.php')` 。得到flag为`flag{93odcGA47rSRFDG}` 
+
+![](cmd-inject.png)
+
+#### 这不仅仅是WEB
+
+> 格式bdctf{xxxxx}
+> http://64fcfc546e0fafb5b4c327cc1eb36ec4.yogeit.com:8080
+
+存在文件读取：
+
+```php
+//index.php
+//view-source:http://64fcfc546e0fafb5b4c327cc1eb36ec4.yogeit.com:8080/?page=php://filter/convert.base64-encode/resource=index.php
+<?php
+$file = $_GET["page"];
+if( isset( $file ) )
+	include( $file );
+else {
+	header( 'Location:?page=include.php' );
+	exit;
+}
+?>
+```
+
+```php
+//include.php
+//view-source:http://64fcfc546e0fafb5b4c327cc1eb36ec4.yogeit.com:8080/?page=php://filter/convert.base64-encode/resource=include.php
+<?php
+echo'
+<html>
+<body>
+<p align="center">
+<font size="20">
+<b>File Include</b>
+</font>
+</p>
+<br>
+<p align="center"><img src="photo.jpg"></p>
+<br>
+<br>
+<br>
+<font color="white">文件格式为文本格式</font>
+</body>
+</html>'
+?>
+```
+
+访问不了惹。
+
+### MISC
+
+#### MISC签到题
+
+> `R1kzRE1RWldHRTNET04yQ0dZWkRHTVpXR0kzRElNWldHTVlUR01CVEdJWlRHTlJVR01ZVEdNUlRIRTNETU1aWkdZMlRHTVpUSEUzREVNWlVHWVlUR01SVEdZM0RFTVpaR000RE1NWlRHQTNETU1aVEdNM0RHTlJYSVE9PT09PT0=`
+
+先base64解码，再base32解码，然后十六进制转ASCII码，得到flag为`flag{b3bd61023d129f9e39b4a26b98c0f366}`
+
+![](misc-checkin.png)
+
+#### 常规杂项
+
+在文件末尾发现提示`Password:Bluedon[0-9]{8}`  ，写python脚本生成字典，`binwalk -e` 提取出压缩包，使用ziperello爆破得到密码为Bluedon47632601，解压后还是一个压缩包，但应该是伪加密，用notepad++打开即可看到flag为`flag{Aha!_Y0u_9Ot_i7}`。
+
+队友使用了ARCHPR掩码爆破，方便很多。
+
+```python
+import itertools
+s0 = 'Bluedon'
+p = '0123456789'
+f = open('normalpass.txt', 'w+')
+passwd = ''
+for i in itertools.product(p, p, p, p, p, p, p, p):
+    passwd = s0 + ''.join(i)
+    f.write(passwd)
+```
+
+![](cracked.png)
+
+![](normal-misc-flag.png)
+
+#### 就在眼前
+
+> 就在眼前
+> 恩，如题。格式BDCTF{xxxxx}
+>
+> `flag=E5=80=BC=E5=B0=B1=E5=9C=A8=E6=AD=A4=E6=96=87=E6=A1=A3=E4=B8=AD=EF=BC=8C=E5=B9=B6=E4=B8=94=E4=BD=BF=E7=94=A8=E4=BA=86=E6=96=87=E6=9C=AC=E9=9A=90=E8=97=8F=E6=8A=8A=E8=87=AA=E5=B7=B1=E9=9A=90=E8=97=8F=E8=B5=B7=E6=9D=A5=E4=BA=86=E3=80=82=0A=E6=98=BE=E7=A4=BA=E5=87=BA=E9=9A=90=E8=97=8F=E6=96=87=E6=9C=AC=E5=8D=B3=E5=8F=AF`
+
+使用了Quoted Printable encode，[在线解码](http://www.webatic.com/run/convert/qp.php) 可知隐藏了flag，让其显示即可。`BDCTF{Y0u_4Re_5ucCe5SFul}`
+
+队友将文件另存为XML，打开也可见flag。
+
+![](qpdecode.png)![](jiuzaiyanqian-flag.png)
 
