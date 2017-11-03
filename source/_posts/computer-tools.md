@@ -9,8 +9,6 @@ description: 记录一些好用的工具
 
 > [https://github.com/findneo/computerTools](https://github.com/findneo/computerTools)
 
-[TOC]
-
 ### 系统优化类
 
 [everything](http://www.voidtools.com/) 本地文件全盘搜索。
