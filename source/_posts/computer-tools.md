@@ -1,6 +1,6 @@
 ---
 comments: false
-title: computer-tools
+title: computer tools
 tags: [hacklife]
 date: 2017-11-03 12:50:51
 categories: 备忘
