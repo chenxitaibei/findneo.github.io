@@ -51,7 +51,7 @@ foxmail邮箱客户端，RSS功能也不错。
 
 [7zip](http://www.7-zip.org/) 开源免费无广告的压缩工具。
 
-win10锁屏壁纸所在文件夹(C:\Users\\++username++\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets) 
+win10锁屏壁纸所在文件夹`(C:\Users\\++username++\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets) `
 
 谷歌浏览器 [中文版](http://www.google.cn/chrome/browser/desktop/index.html),[英文版](https://www.google.com/chrome/browser/desktop/index.html?hl=en) 
 
