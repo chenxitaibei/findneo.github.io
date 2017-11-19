@@ -10,10 +10,9 @@ tags: [ctf]
 
 > 南邮CTF平台网址：
 >
-> * http://ctf.nuptsast.com/challengesz
+> * http://ctf.nuptsast.com/challenges
 > * http://ctf.nuptzj.cn/challenges
 >
-> [findneo](http://ctf.nuptsast.com/team/6675)
 
 ### WEB
 
