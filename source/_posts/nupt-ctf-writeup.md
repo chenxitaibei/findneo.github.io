@@ -913,10 +913,6 @@ if(!empty($token)&&!empty($emailAddress)){
 
 flag{a6caad3aaafa11b6d5ed583bef4d8a54} 
 
-没错 里面隐藏了一张女神的照片
-flag是照片文件的md5值(小写)
-记住加上flag{}
-
 ### 密码学 
 
 #### easy!
