@@ -7,6 +7,8 @@ categories: 备忘
 description: 一个IP地址，可能有上百种面目
 ---
 
+
+
 从上回看到`ping 127.1` 能正常工作开始，就一直很好奇背后的原因，最近又在 [一个CTF题目](https://findneo.github.io/2017/11/HITCON-CTF-2017-Babyfirst-Revenge-series-writeup/) 用到基于IP表示法的技巧，于是决定稍微探索一下。
 
 ### 概况
@@ -25,7 +27,7 @@ IP地址用以标记使用IP接入网络的设备。IPv4把IP地址定义为32�
 | D类地址（[群播](https://zh.wikipedia.org/wiki/%E7%BE%A4%E6%92%AD)） | 1110 | 未定义    | 未定义   | 未定义       | 未定义        |
 | E类地址（保留）                                 | 1111 | 未定义    | 未定义   | 未定义       | 未定义        |
 
-###  IPv4 地址句法的历史与现状
+### IPv4 地址句法的历史与现状
 
 一个IPv4地址除了被机器解析外，还会用在很多需要人类阅读理解的地方，而一个32位二进制数(如`11000000101010000100001011101001` )对人类是很不友好的，因此人们必然会需要某种文本描述(textual representation) 。我们现在最常见到的点分十进制表示法(dotted-decimal notation) 就是其一。什么是点分十进制呢？就是由点号分隔开的四个十进制数(如`192.168.66.233` ） ，其中每个十进制数表示一个字节(octets , 八位二进制数)，较高有效位在左，较低有效位在右。
 
@@ -41,8 +43,8 @@ IP地址用以标记使用IP接入网络的设备。IPv4把IP地址定义为32�
 
 #### 不同点
 
-* BSD版本的许多句法IETF版本都不支持
-* ***最重要的。***IETF版本的句法在所有表述中始终如一地暗示要将带有前导0的数字解释为十进制，而BSD版本的句法在实现中将带有前导0的数字解释为八进制。举个例子，前者认为`192.168.1.011` 等价于`192.168.1.11` ，而后者认为等价于`192.168.1.9` 。
+- BSD版本的许多句法IETF版本都不支持
+- ***最重要的。***IETF版本的句法在所有表述中始终如一地暗示要将带有前导0的数字解释为十进制，而BSD版本的句法在实现中将带有前导0的数字解释为八进制。举个例子，前者认为`192.168.1.011` 等价于`192.168.1.11` ，而后者认为等价于`192.168.1.9` 。
 
 值得一提的是IPv6 的发展也对此产生了一定的影响。IPv6中的函数`inet_pton()` 在处理IPv4地址时只接受点分十进制，并且明确地拒绝了一些能够被`inet_aton()` 接受的句法。然而，对于是否接受前导0语焉不详。
 
@@ -68,24 +70,24 @@ separated by period characters.
 
 ### inet_aton()允许哪些形式的IP地址
 
-> * a single number giving the entire 32-bit address.
-> * dot-separated octet values.  
-> * It also interpreted two intermediate syntaxes: 
->   * octet-dot-octet-dot-16bits, intended for class B addresses
->   * octet-dot-24bits, intended for class A addresses. 
-> * It also allowed some flexibility in how the individual numeric parts were specified. it allowed octal and hexadecimal in addition to decimal, distinguishing these radices by using the C language syntax involving a prefix "0" or "0x", and allowed the numbers to be arbitrarily long.
+> - a single number giving the entire 32-bit address.
+> - dot-separated octet values.  
+> - It also interpreted two intermediate syntaxes: 
+>   - octet-dot-octet-dot-16bits, intended for class B addresses
+>   - octet-dot-24bits, intended for class A addresses. 
+> - It also allowed some flexibility in how the individual numeric parts were specified. it allowed octal and hexadecimal in addition to decimal, distinguishing these radices by using the C language syntax involving a prefix "0" or "0x", and allowed the numbers to be arbitrarily long.
 
 归纳起来有这么几种情况
 
-* IP地址只有一个部分，表示为`a` ，每部分表示32位二进制数
-* IP地址有两个部分，表示为`a.b` ，`a` 表示8位二进制数，`b` 表示24位二进制数
-* IP地址有三部分，表示为`a.b.c` ，`a` 和`b` 各表示8位二进制数，`c` 表示16位二进制数
-* IP地址有四个部分，表示为`a.b.c.d` ，每部分表示8位二进制数
+- IP地址只有一个部分，表示为`a` ，每部分表示32位二进制数
+- IP地址有两个部分，表示为`a.b` ，`a` 表示8位二进制数，`b` 表示24位二进制数
+- IP地址有三部分，表示为`a.b.c` ，`a` 和`b` 各表示8位二进制数，`c` 表示16位二进制数
+- IP地址有四个部分，表示为`a.b.c.d` ，每部分表示8位二进制数
 
 以及这么两个重点
 
-* 每一个部分可以都有三种表示法，十进制、十六进制和八进制，用前缀表明进制。
-* 每部分的数字可以是任意长度。
+- 每一个部分可以都有三种表示法，十进制、十六进制和八进制，用前缀表明进制。
+- 每部分的数字可以是任意长度。
 
 到此为止，可以看到`127.1` 属于上述第二种情况，最开始的疑惑也就不复存在。
 
