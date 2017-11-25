@@ -1,6 +1,6 @@
 ---
 comments: false
-title: IPv4地址的各种形式
+title: IP地址的各种表示形式
 tags: [网络]
 date: 2017-11-25 16:18:25
 categories: 备忘

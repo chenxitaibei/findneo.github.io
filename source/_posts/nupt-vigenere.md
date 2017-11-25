@@ -291,6 +291,7 @@ def vigenereDecrypt(cipher, key):
 
 ```python
 # coding:utf8
+# by https://findneo.github.io/
 def getCipher(file='code.txt'):
     '''从文件中读取十六进制串，返回十六进制数组
     '''

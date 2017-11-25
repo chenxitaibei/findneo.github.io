@@ -74,6 +74,7 @@ print caesar('h3llo')
 ### 莫尔斯电码加解密
 
 ```python
+# by https://findneo.github.io/
 import re
 
 
@@ -145,6 +146,7 @@ print baseRandomEncode('hello world!')  # test
 ### base64混合解码
 
 ```python
+# by https://findneo.github.io/
 from base64 import *
 import re
 
