@@ -97,7 +97,7 @@ separated by period characters.
 
 这应该算是一个历史遗留问题，不过在未来一段时间内，在广泛涉及URL和IP地址的浏览器和许多应用层程序(如Ping、telnet、wget、curl、GET、HEAD等)中，符合BSD版本句法的IPv4地址表示形式仍然是可接受的，而这些表示可以多达上百种，就可能在一些安全问题上发挥出人意料的作用。
 
-### 一个产生各种形式IP地址的脚本
+### 生成一个IP地址的上百种形式
 
 可以在 [这里](https://github.com/findneo/IP-Obfuscator) 获得最新代码。
 
