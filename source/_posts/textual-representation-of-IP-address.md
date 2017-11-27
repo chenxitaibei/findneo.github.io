@@ -9,6 +9,10 @@ description: 一个IP地址，可能有上百种面目
 
 
 
+> [https://github.com/findneo/IP-Obfuscator](https://github.com/findneo/IP-Obfuscator) 
+
+
+
 从上回看到`ping 127.1` 能正常工作开始，就一直很好奇背后的原因，最近又在 [一个CTF题目](https://findneo.github.io/2017/11/HITCON-CTF-2017-Babyfirst-Revenge-series-writeup/) 用到基于IP表示法的技巧，于是决定稍微探索一下。
 
 ### 概况
