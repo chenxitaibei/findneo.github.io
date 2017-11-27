@@ -4,7 +4,7 @@ title: computer tools
 tags: [hacklife]
 date: 2017-11-03 12:50:51
 categories: 备忘
-description: 记录一些好用的工具
+description: 记录一些超好用的工具
 ---
 
 > [https://github.com/findneo/computerTools](https://github.com/findneo/computerTools)

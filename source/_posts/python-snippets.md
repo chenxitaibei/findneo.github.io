@@ -4,7 +4,7 @@ tags: [python ]
 date: 2017-10-15 16:45:21
 categories: code
 comments: false
-description: caeser,morse,rail-fence,base64
+description: 凯撒加密，摩斯电码，栅栏密码，base家族混合编解码。。。	
 ---
 
 ### 栅栏密码加解密
