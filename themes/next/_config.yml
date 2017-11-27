@@ -88,7 +88,7 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
-  留言: /about/ || user
+  about: /about/ || user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -144,7 +144,7 @@ links: #links:
   Chybeta: https://chybeta.github.io/  #Title: http://example.com/
   #CTF日历: https://ctftime.org/calendar/
   lzhtony: https://lxpark.com/
-  Mads: https://blog.madsome.cn/
+  Mads: https://madsome.cn/
   Ph0en1x: https://ph0en1x.com/
   #太极书馆: http://www.8bei8.com/ 
   #维基文库: https://zh.wikisource.org/wiki/Wikisource:%E9%A6%96%E9%A1%B5

@@ -15,7 +15,7 @@ email: 	dfindneo@gmail.com
 
   Chybeta:  		 https://chybeta.github.io/
   lzhtony:		 https://lxpark.com/
-  Mads:			 https://blog.madsome.cn/
+  Mads:			 https://madsome.cn/
 
 
 
