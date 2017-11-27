@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="findneo">
 <meta property="og:description" content="一个IP地址，可能有上百种面目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T07:19:30.320Z">
+<meta property="og:updated_time" content="2017-11-27T14:06:33.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IP地址混淆">
 <meta name="twitter:description" content="一个IP地址，可能有上百种面目">
@@ -227,12 +227,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-留言">
+        <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            留言
+            关于
           </a>
         </li>
       
@@ -390,12 +390,10 @@
       
 
       
-        <blockquote>
-<p><a href="https://github.com/findneo/IP-Obfuscator" target="_blank" rel="external">https://github.com/findneo/IP-Obfuscator</a> </p>
-</blockquote>
-<p>从上回看到<code>ping 127.1</code> 能正常工作开始，就一直很好奇背后的原因，最近又在 <a href="https://findneo.github.io/2017/11/HITCON-CTF-2017-Babyfirst-Revenge-series-writeup/">一个CTF题目</a> 用到基于IP表示法的技巧，于是决定稍微探索一下。</p>
-<p>我发现一个IPv4地址可能拥有上百个不同的表示形式，而由于一些历史原因，在这方面的标准尚未完全统一，因此这些形式在大部分情况下都是可被正常解析的(举个例子，这个URL <a href="http://000000300.0x000000000a8.00102.00000000351" target="_blank" rel="external">http://000000300.0x000000000a8.00102.00000000351</a> 会解析成<a href="http://192.168.66.233/" target="_blank" rel="external">http://192.168.66.233/</a> )，这就在绕过限制和其他一些安全问题上提供了想象的空间。为此我写了个小脚本，放在了GitHub上，地址在文章开头。</p>
-<h3 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h3><p>IPv4是应用于分组交换网络的无状态协议，是网际协议(Internet Protocol , IP)的第四个版本，也是第一个投入生产的版本，1983年开始首先应用在ARPANET项目中。</p>
+        <p>不知有多少人了解IP地址<code>127.0.0.1</code> 一定程度上是完全等价于<code>127.1</code> 和<code>0x7f.1</code> 的，不过我从上回看到<code>ping 127.1</code> 能正常工作开始，就一直很好奇背后的原因，最近又在 <a href="https://findneo.github.io/2017/11/HITCON-CTF-2017-Babyfirst-Revenge-series-writeup/">一个CTF题目</a> 用到基于IP表示法的技巧，于是决定稍微探索一下。</p>
+<p>我发现一个IPv4地址可能拥有上百个不同的表示形式，而由于一些历史原因，在这方面的标准尚未完全统一，因此这些形式在大部分情况下都是可被正常解析的(举个例子，URL <a href="http://000000300.0x000000000a8.00102.00000000351" target="_blank" rel="external">http://000000300.0x000000000a8.00102.00000000351</a> 会解析成<a href="http://192.168.66.233/" target="_blank" rel="external">http://192.168.66.233/</a> )，这就在绕过限制和其他一些安全问题上提供了想象的空间。</p>
+<p>本文主要介绍这些混淆背后的历史原因和原理，至于如何生成适用形式的IP也不复杂，并且常常需要考虑具体场景。不过我写了个小脚本，放在了<a href="https://github.com/findneo/IP-Obfuscator" target="_blank" rel="external">GitHub</a> 上，有需要可作为参考。</p>
+<h3 id="关于IP和IPv4地址"><a href="#关于IP和IPv4地址" class="headerlink" title="关于IP和IPv4地址"></a>关于IP和IPv4地址</h3><p>IPv4是应用于分组交换网络的无状态协议，是网际协议(Internet Protocol , IP)的第四个版本，也是第一个投入生产的版本，1983年开始首先应用在ARPANET项目中。</p>
 <p>IP地址用以标记使用IP接入网络的设备。IPv4把IP地址定义为32位二进制数，可表示 <code>2**32</code> 约42亿个网络设备接口，早期使用分类网络(Classful Addressing)的方法划分为五类，随着IP地址需求的增长，这种分类法被无类别域间路由(Classless Inter-Domain Routing , CIDR)取代。【参见RFC 1517-1519】</p>
 <h3 id="IPv4-地址句法的历史与现状"><a href="#IPv4-地址句法的历史与现状" class="headerlink" title="IPv4 地址句法的历史与现状"></a>IPv4 地址句法的历史与现状</h3><p>一个IPv4地址除了被机器解析外，还会用在很多需要人类阅读理解的地方，而一个32位二进制数(如<code>11000000101010000100001011101001</code> )对人类是很不友好的，因此人们必然会需要某种文本描述(textual representation) 。我们现在最常见到的点分十进制表示法(dotted-decimal notation) 就是其一。什么是点分十进制呢？就是由点号分隔开的四个十进制数(如<code>192.168.66.233</code> ） ，其中每个十进制数表示一个字节(octets , 八位二进制数)，较高有效位在左，较低有效位在右。</p>
 <p>尽管从上面的描述我们可以了解到IPv4地址的常见形式，但是关于IP地址的文本描述具体应该如何，似乎从来没有严谨全面的定义。另一方面，IP作为互联网中较为基础的设施之一，常常不可避免地出现在各种协议的描述里，这些描述有时顺带也会提及IP地址的写法，但提法不尽相同，也并不足够强硬和严谨。这篇 <a href="https://tools.ietf.org/html/draft-main-ipaddr-text-rep-02" target="_blank" rel="external">文章</a> 细数了一些RFC文档里出现过的描述 ，可以看到不同场景下出现过<code>#127.0.0.1</code> 、<code>[127.0.0.1]</code> 、<code>127.000.000.001</code> 等形式的写法。</p>
@@ -651,7 +649,7 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://blog.madsome.cn/" title="Mads" target="_blank">Mads</a>
+                    <a href="https://madsome.cn/" title="Mads" target="_blank">Mads</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -677,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概况"><span class="nav-number">1.</span> <span class="nav-text">概况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv4-地址句法的历史与现状"><span class="nav-number">2.</span> <span class="nav-text">IPv4 地址句法的历史与现状</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相同点"><span class="nav-number">2.1.</span> <span class="nav-text">相同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同点"><span class="nav-number">2.2.</span> <span class="nav-text">不同点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inet-aton-允许哪些形式的IP地址"><span class="nav-number">3.</span> <span class="nav-text">inet_aton()允许哪些形式的IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成一个IP地址的上百种形式"><span class="nav-number">4.</span> <span class="nav-text">生成一个IP地址的上百种形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果列表"><span class="nav-number">5.</span> <span class="nav-text">结果列表</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于IP和IPv4地址"><span class="nav-number">1.</span> <span class="nav-text">关于IP和IPv4地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IPv4-地址句法的历史与现状"><span class="nav-number">2.</span> <span class="nav-text">IPv4 地址句法的历史与现状</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相同点"><span class="nav-number">2.1.</span> <span class="nav-text">相同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同点"><span class="nav-number">2.2.</span> <span class="nav-text">不同点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inet-aton-允许哪些形式的IP地址"><span class="nav-number">3.</span> <span class="nav-text">inet_aton()允许哪些形式的IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成一个IP地址的上百种形式"><span class="nav-number">4.</span> <span class="nav-text">生成一个IP地址的上百种形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果列表"><span class="nav-number">5.</span> <span class="nav-text">结果列表</span></a></li></ol></div>
             
 
           </div>
