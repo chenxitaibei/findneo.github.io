@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="findneo">
 <meta property="og:description" content="一个IP地址，可能有上百种面目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T05:43:13.644Z">
+<meta property="og:updated_time" content="2017-11-27T05:53:53.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IP地址的多种表示形式">
 <meta name="twitter:description" content="一个IP地址，可能有上百种面目">
@@ -394,64 +394,9 @@
 <p><a href="https://github.com/findneo/IP-Obfuscator" target="_blank" rel="external">https://github.com/findneo/IP-Obfuscator</a> </p>
 </blockquote>
 <p>从上回看到<code>ping 127.1</code> 能正常工作开始，就一直很好奇背后的原因，最近又在 <a href="https://findneo.github.io/2017/11/HITCON-CTF-2017-Babyfirst-Revenge-series-writeup/">一个CTF题目</a> 用到基于IP表示法的技巧，于是决定稍微探索一下。</p>
-<p>我发现一个IPv4地址可能拥有上百个不同的表示形式，而由于一些历史原因，在这方面的标准尚未完全统一，因此这些形式在大部分情况下都是可被正常解析的(举个例子，点击下这个链接：<a href="http://000000300.0x000000000a8.00102.00000000351" target="_blank" rel="external">http://000000300.0x000000000a8.00102.00000000351</a> )，这就在绕过限制和其他一些安全问题上提供了想象的空间。为此我写了个小脚本，放在了GitHub上，地址在文章开头。</p>
+<p>我发现一个IPv4地址可能拥有上百个不同的表示形式，而由于一些历史原因，在这方面的标准尚未完全统一，因此这些形式在大部分情况下都是可被正常解析的(举个例子，这个URL <a href="http://000000300.0x000000000a8.00102.00000000351" target="_blank" rel="external">http://000000300.0x000000000a8.00102.00000000351</a> 会解析成<a href="http://192.168.66.233/" target="_blank" rel="external">http://192.168.66.233/</a> )，这就在绕过限制和其他一些安全问题上提供了想象的空间。为此我写了个小脚本，放在了GitHub上，地址在文章开头。</p>
 <h3 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h3><p>IPv4是应用于分组交换网络的无状态协议，是网际协议(Internet Protocol , IP)的第四个版本，也是第一个投入生产的版本，1983年开始首先应用在ARPANET项目中。</p>
 <p>IP地址用以标记使用IP接入网络的设备。IPv4把IP地址定义为32位二进制数，可表示 <code>2**32</code> 约42亿个网络设备接口，早期使用分类网络(Classful Addressing)的方法划分为五类，随着IP地址需求的增长，这种分类法被无类别域间路由(Classless Inter-Domain Routing , CIDR)取代。【参见RFC 1517-1519】</p>
-<p> Classful Addressing：</p>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>前缀位</th>
-<th>网络地址位数</th>
-<th>剩余的位数</th>
-<th>网络数</th>
-<th>每个网络的主机数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A类地址（单播）</td>
-<td>0</td>
-<td>8</td>
-<td>24</td>
-<td>128</td>
-<td>16,777,214</td>
-</tr>
-<tr>
-<td>B类地址（单播）</td>
-<td>10</td>
-<td>16</td>
-<td>16</td>
-<td>16,384</td>
-<td>65,534</td>
-</tr>
-<tr>
-<td>C类地址（单播）</td>
-<td>110</td>
-<td>24</td>
-<td>8</td>
-<td>2,097,152</td>
-<td>254</td>
-</tr>
-<tr>
-<td>D类地址（<a href="https://zh.wikipedia.org/wiki/%E7%BE%A4%E6%92%AD" target="_blank" rel="external">群播</a>）</td>
-<td>1110</td>
-<td>未定义</td>
-<td>未定义</td>
-<td>未定义</td>
-<td>未定义</td>
-</tr>
-<tr>
-<td>E类地址（保留）</td>
-<td>1111</td>
-<td>未定义</td>
-<td>未定义</td>
-<td>未定义</td>
-<td>未定义</td>
-</tr>
-</tbody>
-</table>
 <h3 id="IPv4-地址句法的历史与现状"><a href="#IPv4-地址句法的历史与现状" class="headerlink" title="IPv4 地址句法的历史与现状"></a>IPv4 地址句法的历史与现状</h3><p>一个IPv4地址除了被机器解析外，还会用在很多需要人类阅读理解的地方，而一个32位二进制数(如<code>11000000101010000100001011101001</code> )对人类是很不友好的，因此人们必然会需要某种文本描述(textual representation) 。我们现在最常见到的点分十进制表示法(dotted-decimal notation) 就是其一。什么是点分十进制呢？就是由点号分隔开的四个十进制数(如<code>192.168.66.233</code> ） ，其中每个十进制数表示一个字节(octets , 八位二进制数)，较高有效位在左，较低有效位在右。</p>
 <p>尽管从上面的描述我们可以了解到IPv4地址的常见形式，但是关于IP地址的文本描述具体应该如何，似乎从来没有严谨全面的定义。另一方面，IP作为互联网中较为基础的设施之一，常常不可避免地出现在各种协议的描述里，这些描述有时顺带也会提及IP地址的写法，但提法不尽相同，也并不足够强硬和严谨。这篇 <a href="https://tools.ietf.org/html/draft-main-ipaddr-text-rep-02" target="_blank" rel="external">文章</a> 细数了一些RFC文档里出现过的描述 ，可以看到不同场景下出现过<code>#127.0.0.1</code> 、<code>[127.0.0.1]</code> 、<code>127.000.000.001</code> 等形式的写法。</p>
 <p>当IETF版本的句法处于无意识发展时，BSD版本的句法悄然登场。一个权威的解释大概也不是那么重要，尤其是当一项技术的某种实现已经被广泛使用。对于IPv4地址而言，这个实现就是<code>4.2BSD</code> 。 <code>4.2BSD</code> 引入了名为<code>inet_aton()</code> 的用于将字符串解释为IP地址的函数，这个函数被广泛地复制和演绎，从而使得BSD版本的关于IP地址文本描述的句法成为了事实上的标准——能够被<code>inet_aton()</code> 解释即合标准。至于<code>inet_aton()</code> 接受哪些形式的IP地址，将在下文给出。</p>
