@@ -8,7 +8,7 @@ description: 美亚柏科邀请赛2017
 
 ---
 
-## WEB
+### WEB
 
 #### WEB2
 
@@ -25,7 +25,7 @@ burp抓包后向login.php常规 post `user[]=admin&pass[]=a&submit=submit`  。 
 > 链    接http://3jhg9aks3.isec.anscen.cn
 
 - fuzz发现某些响应包头部会多出`Set-Cookie: remind=U1FMSQ%3D%3D;` 字样，依此进行布尔型盲注。
-- 使用intruder的cluster模式自动化，攻击向量为`content=b'||substr((select/**/hex(database())),$1$,1)='$6$'#` 
+- 使用intruder的`Cluster Bomb` 模式自动化，攻击向量为`content=b'||substr((select/**/hex(database())),$1$,1)='$6$'#` 
 - 处理得到flag
 
 ```python
