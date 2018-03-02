@@ -15,14 +15,14 @@ EMAIL dfindneo#gmail.com
 
 ------
 
+**Tiny jobs**
+
+[IP地址混淆器](https://findneo.github.io/IP-Obfuscator/) 	 [即时编解码工具](https://findneo.github.io/fcode/)		[为 MD 生成 TOC](https://findneo.github.io/gen-markdown-content/) 
+
+------
+
 **links**
 
-Ph0en1x:		https://ph0en1x.com/  
+[My Github](https://github.com/findneo) 	[Ph0en1x ctf team](https://ph0en1x.com/)		
 
-Chybeta:  		 https://chybeta.github.io/
-
-Vancir:			http://vancir.com/
-
-  lzhtony:		 https://lxpark.com/
-  Mads:			 https://madsome.cn/
-
+[Chybeta](https://chybeta.github.io/)		[Vancir](http://vancir.com/)	[lzhtiny](https://lxpark.com/)	[Mads](https://madsome.cn/) 
