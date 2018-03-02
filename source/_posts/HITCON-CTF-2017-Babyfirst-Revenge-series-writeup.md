@@ -1,5 +1,5 @@
 ---
-comments: false
+comments: true
 title: HITCON CTF 2017 BabyFirst Revenge & v2 writeup
 tags: [ctf,命令注入]
 date: 2017-11-12 17:14:27

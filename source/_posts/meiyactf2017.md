@@ -1,10 +1,10 @@
 ---
-comments: false
-title: 美亚柏科邀请赛2017
+comments: true
+title: 第二届美亚柏科邀请赛
 tags: [ctf]
 date: 2017-12-23 20:36:25
 categories: writeup
-description: 美亚柏科邀请赛2017
+description: 手动逐字节盲注真辛苦~
 
 ---
 

@@ -5,7 +5,7 @@
 # Site
 title: findneo
 subtitle: 
-description: #the quieter you become, the more you are able to hear.
+description: Time is of the essence. # the quieter you become, the more you are able to hear.
 author: findneo
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -40,7 +40,7 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: false
+  line_number: true
   auto_detect: false
   tab_replace:
   

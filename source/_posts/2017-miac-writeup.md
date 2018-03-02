@@ -1,9 +1,9 @@
 ---
-title: 2017 miac writeup
+title: 2017 MIAC移动安全赛
 tags: [ctf]
 date: 2017-10-15 16:25:04
 categories: writeup
-comments: false
+comments: true
 description: ┏ (゜ω゜)=☞  滑稽树上滑稽果 
 ---
 

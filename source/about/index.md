@@ -1,21 +1,28 @@
 ---
-title: 留言板
+title: About
 date: 2017-09-24 03:27:04
 ---
 
 
 
-**关于我**  
+本博客于2017年国庆前后上线，用以记录与分享所学所思。
 
-GitHub:  https://github.com/findneo
+XMU 2015级本科在读
 
-email: 	dfindneo@gmail.com
+WECHAT dlgbyhll
 
-**朋友们**
+EMAIL dfindneo#gmail.com
 
-  Chybeta:  		 https://chybeta.github.io/
+------
+
+**links**
+
+Ph0en1x:		https://ph0en1x.com/  
+
+Chybeta:  		 https://chybeta.github.io/
+
+Vancir:			http://vancir.com/
+
   lzhtony:		 https://lxpark.com/
   Mads:			 https://madsome.cn/
-
-
 
