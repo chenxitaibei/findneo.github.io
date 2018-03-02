@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="findneo">
 <meta property="og:description" content="或许，记录在印象笔记和在博客会有不同，但是究竟，不同在哪里呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-22T10:36:00.117Z">
+<meta property="og:updated_time" content="2018-02-28T16:06:34.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客搭建与自定义">
 <meta name="twitter:description" content="或许，记录在印象笔记和在博客会有不同，但是究竟，不同在哪里呢？">
@@ -363,10 +363,27 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/hexo-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/09/hexo-config/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
 
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>page_pv
+            </span>
           
 
           
@@ -397,18 +414,18 @@
 <li>将博客发布到GitHub page。</li>
 </ol>
 <h3 id="hexo本地搭建可访问博客"><a href="#hexo本地搭建可访问博客" class="headerlink" title="hexo本地搭建可访问博客"></a>hexo本地搭建可访问博客</h3><p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">官方文档</a>讲的很详细了。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">#</span>基于Windows 10 ; hexo: 3.3.9 ; next Release 5.0.0</div><div class="line"></div><div class="line"><span class="meta">#</span>1.安装 Node.js (https://nodejs.org/en/download/)</div><div class="line"></div><div class="line"><span class="meta">#</span>2.安装 Git for Windows (https://github.com/waylau/git-for-win)</div><div class="line"></div><div class="line"><span class="meta">#</span>3.安装 hexo</div><div class="line"><span class="meta">#</span>  打开cmd.exe</div><div class="line">npm install -g hexo-cli</div><div class="line"></div><div class="line"><span class="meta">#</span>4. 创建博客</div><div class="line"><span class="meta">#</span>  进入想要放博客文件的目录</div><div class="line">hexo init &lt;folder&gt;</div><div class="line">cd &lt;folder&gt;</div><div class="line">npm install</div><div class="line"><span class="meta">#</span> 到此为止已经可以看到效果</div><div class="line"><span class="meta">#</span> hexo clean;hexo g;hexo s [--debug]</div><div class="line"></div><div class="line"><span class="meta">#</span>5. 自选主题，如next (http://theme-next.iissnan.com/getting-started.html)</div><div class="line">cd themes</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div><div class="line"></div><div class="line"><span class="meta">#</span> 到此为止目录结构如下</div><div class="line">.</div><div class="line">├── _config.yml  [站点配置文件]</div><div class="line">├── ...</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div><div class="line">	├──landscape</div><div class="line">	└──next</div><div class="line">		└──_config.yml [博客配置文件]</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>基于Windows 10 ; hexo: 3.3.9 ; next Release 5.0.0</div><div class="line"></div><div class="line"><span class="meta">#</span>1.安装 Node.js (https://nodejs.org/en/download/)</div><div class="line"></div><div class="line"><span class="meta">#</span>2.安装 Git for Windows (https://github.com/waylau/git-for-win)</div><div class="line"></div><div class="line"><span class="meta">#</span>3.安装 hexo</div><div class="line"><span class="meta">#</span>  打开cmd.exe</div><div class="line">npm install -g hexo-cli</div><div class="line"></div><div class="line"><span class="meta">#</span>4. 创建博客</div><div class="line"><span class="meta">#</span>  进入想要放博客文件的目录</div><div class="line">hexo init &lt;folder&gt;</div><div class="line">cd &lt;folder&gt;</div><div class="line">npm install</div><div class="line"><span class="meta">#</span> 到此为止已经可以看到效果</div><div class="line"><span class="meta">#</span> hexo clean;hexo g;hexo s [--debug]</div><div class="line"></div><div class="line"><span class="meta">#</span>5. 自选主题，如next (http://theme-next.iissnan.com/getting-started.html)</div><div class="line">cd themes</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div><div class="line"></div><div class="line"><span class="meta">#</span> 到此为止目录结构如下</div><div class="line">.</div><div class="line">├── _config.yml  [站点配置文件]</div><div class="line">├── ...</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div><div class="line">	├──landscape</div><div class="line">	└──next</div><div class="line">		└──_config.yml [博客配置文件]</div></pre></td></tr></table></figure>
 <h3 id="自定义博客样式"><a href="#自定义博客样式" class="headerlink" title="自定义博客样式"></a>自定义博客样式</h3><h4 id="blog-config-yml"><a href="#blog-config-yml" class="headerlink" title="blog/_config.yml"></a>blog/_config.yml</h4><p><a href="https://github.com/findneo/findneo.github.io/blob/0f6cc6c0c88e46ed8409e7c4c76e86eea0fadea9/_config.yml" target="_blank" rel="external">git commit</a></p>
 <h4 id="blog-themes-next-config-yml"><a href="#blog-themes-next-config-yml" class="headerlink" title="blog/themes/next/_config.yml"></a>blog/themes/next/_config.yml</h4><p><a href="https://github.com/findneo/findneo.github.io/commit/c690492c2000d7544f17bf68928d98b576d164a9#diff-40e8f09dcfb3466627fdbc030ae0795c" target="_blank" rel="external">git commit</a> </p>
-<h4 id="版权声明-，参考"><a href="#版权声明-，参考" class="headerlink" title="版权声明 ，参考"></a>版权声明 ，<a href="http://www.crocutax.com/2017/05/20/Hexo%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96-%E5%9C%A8%E6%96%87%E7%AB%A0%E5%B0%BE%E9%83%A8%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E%E4%BF%A1%E6%81%AF/" target="_blank" rel="external">参考</a></h4><h5 id="blog-themes-next-layout-macro-post-copyright-swig"><a href="#blog-themes-next-layout-macro-post-copyright-swig" class="headerlink" title="blog\themes\next\layout_macro\post-copyright.swig"></a>blog\themes\next\layout_macro\post-copyright.swig</h5><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"post-copyright"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"post-copyright-title"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; __('post.copyright.title') + __('symbol.colon') &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; post.permalink &#125;&#125;"</span> &gt;</span>&#123;&#123; post.title &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"post-copyright-author"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; __('post.copyright.author') + __('symbol.colon') &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123;config.url&#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123;__('post.copyright.welcome')&#125;&#125;"</span>&gt;</span> &#123;&#123; config.author &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"post-copyright-link"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; __('post.copyright.link') + __('symbol.colon') &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; post.permalink &#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; post.title &#125;&#125;"</span>&gt;</span>&#123;&#123; post.permalink &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"post-copyright-license"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; __('post.copyright.license_title') + __('symbol.colon') &#125;&#125; <span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">    &#123;&#123; __('post.copyright.license_content', theme.post_copyright.license_url, theme.post_copyright.license) &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="blog-themes-next-languages-zh-Hans-yml"><a href="#blog-themes-next-languages-zh-Hans-yml" class="headerlink" title="blog\themes\next\languages\zh-Hans.yml"></a>blog\themes\next\languages\zh-Hans.yml</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="comment">##部分</span></div><div class="line"><span class="attr">post:</span></div><div class="line"><span class="attr">  copyright:</span></div><div class="line"><span class="attr">      title:</span> <span class="string">本文标题</span></div><div class="line"><span class="attr">      author:</span> <span class="string">文章作者</span></div><div class="line"><span class="attr">      link:</span> <span class="string">原始链接</span></div><div class="line"><span class="attr">      license_title:</span> <span class="string">版权声明</span></div><div class="line"><span class="attr">      welcome:</span> <span class="string">'访问 findneo 的个人博客'</span></div><div class="line"><span class="attr">      license_content:</span> <span class="string">本文在&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-creative-commons"&gt;&lt;/i&gt;</span></div><div class="line">        <span class="string">&lt;a</span> <span class="string">href="%s"</span> <span class="string">rel="external</span> <span class="string">nofollow"</span> <span class="string">target="_blank"&gt;%s&lt;/a&gt;下发布。转载请保留原始链接。</span></div></pre></td></tr></table></figure>
-<h4 id="文章模板-blog-scaffolds-post-md"><a href="#文章模板-blog-scaffolds-post-md" class="headerlink" title="文章模板 blog\scaffolds\post.md"></a>文章模板 blog\scaffolds\post.md</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><div class="line">---</div><div class="line">title: &#123;&#123; title &#125;&#125;</div><div class="line">date: &#123;&#123; date &#125;&#125;</div><div class="line">categories: </div><div class="line">tags: []     ###可以直接用tags: [tag1,tag2]代替多行tags</div><div class="line">description:     ###当主题配置文件中的excerpt_description开启时，会把这一部分作为文章摘要</div><div class="line"></div><div class="line">---</div></pre></td></tr></table></figure>
+<h4 id="版权声明-，参考"><a href="#版权声明-，参考" class="headerlink" title="版权声明 ，参考"></a>版权声明 ，<a href="http://www.crocutax.com/2017/05/20/Hexo%E6%8C%81%E7%BB%AD%E4%BC%98%E5%8C%96-%E5%9C%A8%E6%96%87%E7%AB%A0%E5%B0%BE%E9%83%A8%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E%E4%BF%A1%E6%81%AF/" target="_blank" rel="external">参考</a></h4><h5 id="blog-themes-next-layout-macro-post-copyright-swig"><a href="#blog-themes-next-layout-macro-post-copyright-swig" class="headerlink" title="blog\themes\next\layout_macro\post-copyright.swig"></a>blog\themes\next\layout_macro\post-copyright.swig</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"post-copyright"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"post-copyright-title"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; __('post.copyright.title') + __('symbol.colon') &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; post.permalink &#125;&#125;"</span> &gt;</span>&#123;&#123; post.title &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"post-copyright-author"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; __('post.copyright.author') + __('symbol.colon') &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123;config.url&#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123;__('post.copyright.welcome')&#125;&#125;"</span>&gt;</span> &#123;&#123; config.author &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"post-copyright-link"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; __('post.copyright.link') + __('symbol.colon') &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; post.permalink &#125;&#125;"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; post.title &#125;&#125;"</span>&gt;</span>&#123;&#123; post.permalink &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"post-copyright-license"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; __('post.copyright.license_title') + __('symbol.colon') &#125;&#125; <span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">    &#123;&#123; __('post.copyright.license_content', theme.post_copyright.license_url, theme.post_copyright.license) &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="blog-themes-next-languages-zh-Hans-yml"><a href="#blog-themes-next-languages-zh-Hans-yml" class="headerlink" title="blog\themes\next\languages\zh-Hans.yml"></a>blog\themes\next\languages\zh-Hans.yml</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##部分</span></div><div class="line"><span class="attr">post:</span></div><div class="line"><span class="attr">  copyright:</span></div><div class="line"><span class="attr">      title:</span> <span class="string">本文标题</span></div><div class="line"><span class="attr">      author:</span> <span class="string">文章作者</span></div><div class="line"><span class="attr">      link:</span> <span class="string">原始链接</span></div><div class="line"><span class="attr">      license_title:</span> <span class="string">版权声明</span></div><div class="line"><span class="attr">      welcome:</span> <span class="string">'访问 findneo 的个人博客'</span></div><div class="line"><span class="attr">      license_content:</span> <span class="string">本文在&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-creative-commons"&gt;&lt;/i&gt;</span></div><div class="line">        <span class="string">&lt;a</span> <span class="string">href="%s"</span> <span class="string">rel="external</span> <span class="string">nofollow"</span> <span class="string">target="_blank"&gt;%s&lt;/a&gt;下发布。转载请保留原始链接。</span></div></pre></td></tr></table></figure>
+<h4 id="文章模板-blog-scaffolds-post-md"><a href="#文章模板-blog-scaffolds-post-md" class="headerlink" title="文章模板 blog\scaffolds\post.md"></a>文章模板 blog\scaffolds\post.md</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: &#123;&#123; title &#125;&#125;</div><div class="line">date: &#123;&#123; date &#125;&#125;</div><div class="line">categories: </div><div class="line">tags: []     ###可以直接用tags: [tag1,tag2]代替多行tags</div><div class="line">description:     ###当主题配置文件中的excerpt_description开启时，会把这一部分作为文章摘要</div><div class="line"></div><div class="line">---</div></pre></td></tr></table></figure>
 <h3 id="将博客发布到GitHub-page"><a href="#将博客发布到GitHub-page" class="headerlink" title="将博客发布到GitHub page"></a>将博客发布到GitHub page</h3><h4 id="网站内容发布"><a href="#网站内容发布" class="headerlink" title="网站内容发布"></a>网站内容发布</h4><p><a href="https://hexo.io/zh-cn/docs/deployment.html#Git" target="_blank" rel="external">官方文档</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">创建GitHub账户，新建username.github.io项目，为git配置ssh</div><div class="line">npm install hexo-deployer-git --save</div><div class="line">hexo d</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">创建GitHub账户，新建username.github.io项目，为git配置ssh</div><div class="line">npm install hexo-deployer-git --save</div><div class="line">hexo d</div></pre></td></tr></table></figure>
 <h4 id="开发内容与配置文件备份"><a href="#开发内容与配置文件备份" class="headerlink" title="开发内容与配置文件备份"></a>开发内容与配置文件备份</h4><p>由于主题next本身是git项目，所以直接在blog文件夹内git init，然后整个blog文件夹(当然blog/.gitignore已经排除了没用的子文件夹)push到GitHub会发现next文件夹整个是空的。因此要做git库的<a href="http://www.mr-ping.com/post/VGr5DCUqTeYoaody" target="_blank" rel="external">嵌套处理</a>，但比较麻烦，而且似乎不适用于这种情况。所以最后我采用在<strong>第一次push前</strong>把blog\themes\next\.git 重命名为 blog\themes\next\now-donot-use.git ，于是blog无法识别到next这个项目，成功地备份了所有配置。将来如果要更新主题，只需重命名回来，然后 git pull ，更新完改回去即可。</p>
 <p>本地调试完成后，只需在git bash里执行<code>./ok [&quot;you commit comment&quot;]</code>即可完成部署和配置备份，ok文件内容如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo d</div><div class="line">git add -A</div><div class="line">if [ "$1" = "" ]</div><div class="line">then</div><div class="line">git commit -m "Update."</div><div class="line">else</div><div class="line">git commit -m "$1"</div><div class="line">fi</div><div class="line">git push</div></pre></td></tr></table></figure>
-<h3 id="emmm-重装系统了"><a href="#emmm-重装系统了" class="headerlink" title="emmm,重装系统了"></a>emmm,重装系统了</h3><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">从头开始，安装git fro windows，配置ssh</div><div class="line">git config --global user.name your_name</div><div class="line">git config --global user.email your_mail</div><div class="line">ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</div><div class="line">clip &lt; ~/.ssh/id_rsa.pub</div><div class="line">ssh -T git@github.com 验证ssh可用</div><div class="line">-------------------------------------</div><div class="line">在GitHub新建findneo.github.io</div><div class="line">git clone https://github.com/findneo/findneo.github.io.git</div><div class="line">cd findneo.github.io</div><div class="line">git checkout -b bakeup </div><div class="line">新建备份分支并设为默认分支，因为后面只手动操作这个分支，master分支由hexo-deployer-git自动操作 </div><div class="line">hexo init tmp</div><div class="line">cp -a tmp/* ./</div><div class="line">rm -rf tmp</div><div class="line">npm install --save hexo-deployer-git</div><div class="line">npm install --save hexo-generator-baidu-sitemap</div><div class="line">npm install --save hexo-generator-sitemap</div><div class="line">npm install --save hexo-generator-searchdb</div><div class="line">npm install --save hexo-generator-feed </div><div class="line">npm i --save hexo-wordcount</div><div class="line">-------------------------------------	</div><div class="line">在站点配置文件中配置git-deployer为master分支</div><div class="line">git add . </div><div class="line">git commit -m "..." </div><div class="line">git push origin bakeup</div><div class="line">hexo d -g</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo d</div><div class="line">git add -A</div><div class="line">if [ "$1" = "" ]</div><div class="line">then</div><div class="line">git commit -m "Update."</div><div class="line">else</div><div class="line">git commit -m "$1"</div><div class="line">fi</div><div class="line">git push</div></pre></td></tr></table></figure>
+<h3 id="emmm-重装系统了"><a href="#emmm-重装系统了" class="headerlink" title="emmm,重装系统了"></a>emmm,重装系统了</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">从头开始，安装git fro windows，配置ssh</div><div class="line">git config --global user.name your_name</div><div class="line">git config --global user.email your_mail</div><div class="line">ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</div><div class="line">clip &lt; ~/.ssh/id_rsa.pub</div><div class="line">ssh -T git@github.com 验证ssh可用</div><div class="line">-------------------------------------</div><div class="line">在GitHub新建findneo.github.io</div><div class="line">git clone https://github.com/findneo/findneo.github.io.git</div><div class="line">cd findneo.github.io</div><div class="line">git checkout -b bakeup </div><div class="line">新建备份分支并设为默认分支，因为后面只手动操作这个分支，master分支由hexo-deployer-git自动操作 </div><div class="line">hexo init tmp</div><div class="line">cp -a tmp/* ./</div><div class="line">rm -rf tmp</div><div class="line">npm install --save hexo-deployer-git</div><div class="line">npm install --save hexo-generator-baidu-sitemap</div><div class="line">npm install --save hexo-generator-sitemap</div><div class="line">npm install --save hexo-generator-searchdb</div><div class="line">npm install --save hexo-generator-feed </div><div class="line">npm i --save hexo-wordcount</div><div class="line">-------------------------------------	</div><div class="line">在站点配置文件中配置git-deployer为master分支</div><div class="line">git add . </div><div class="line">git commit -m "..." </div><div class="line">git push origin bakeup</div><div class="line">hexo d -g</div></pre></td></tr></table></figure>
 <p>参考了<a href="https://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">这位朋友</a>的备份方法，很棒，(๑•̀ㅂ•́)و✧。</p>
 <p>列个软件清单：</p>
 <hr>
@@ -416,12 +433,12 @@
 <p>burpsuite、fiddler、wireshark、nmap、sqlmap、winhex、ziperello、weevely、winhex、御剑、awvs</p>
 <h3 id="添加gitment作为评论系统"><a href="#添加gitment作为评论系统" class="headerlink" title="添加gitment作为评论系统"></a>添加gitment作为评论系统</h3><p>项目介绍:<a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="external">https://imsun.net/posts/gitment-introduction/</a></p>
 <p>在 <em>findneo.github.io\themes\next\layout_partials\comments.swig</em> 的倒数第二个endif前添加</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">&#123;% elseif config.gitment.owner and config.gitment.commentrepo and config.gitment.clientid and config.gitment.clientsecret %&#125;</div><div class="line">		  &lt;div id=<span class="string">"gitmentContainer"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">			&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://imsun.github.io/gitment/style/default.css"</span>&gt;</div><div class="line">			&lt;script src=<span class="string">"https://imsun.github.io/gitment/dist/gitment.browser.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">			&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">			<span class="keyword">var</span> gitment = <span class="keyword">new</span> Gitment(&#123;</div><div class="line">			  id: <span class="string">'&#123;&#123;page.title&#125;&#125;'</span>,</div><div class="line">			  owner: <span class="string">'&#123;&#123;config.gitment.owner&#125;&#125;'</span>,</div><div class="line">			  repo: <span class="string">'&#123;&#123;config.gitment.commentrepo&#125;&#125;'</span>,</div><div class="line">			  oauth: &#123;</div><div class="line">			  client_id: <span class="string">'&#123;&#123;config.gitment.clientid&#125;&#125;'</span>,</div><div class="line">			  client_secret: <span class="string">'&#123;&#123;config.gitment.clientsecret&#125;&#125;'</span>,</div><div class="line">			  &#125;,</div><div class="line">			&#125;)</div><div class="line">			gitment.render(<span class="string">'gitmentContainer'</span>)</div><div class="line">			&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;% elseif config.gitment.owner and config.gitment.commentrepo and config.gitment.clientid and config.gitment.clientsecret %&#125;</div><div class="line">		  &lt;div id=<span class="string">"gitmentContainer"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">			&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://imsun.github.io/gitment/style/default.css"</span>&gt;</div><div class="line">			&lt;script src=<span class="string">"https://imsun.github.io/gitment/dist/gitment.browser.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">			&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">			<span class="keyword">var</span> gitment = <span class="keyword">new</span> Gitment(&#123;</div><div class="line">			  id: <span class="string">'&#123;&#123;page.title&#125;&#125;'</span>,</div><div class="line">			  owner: <span class="string">'&#123;&#123;config.gitment.owner&#125;&#125;'</span>,</div><div class="line">			  repo: <span class="string">'&#123;&#123;config.gitment.commentrepo&#125;&#125;'</span>,</div><div class="line">			  oauth: &#123;</div><div class="line">			  client_id: <span class="string">'&#123;&#123;config.gitment.clientid&#125;&#125;'</span>,</div><div class="line">			  client_secret: <span class="string">'&#123;&#123;config.gitment.clientsecret&#125;&#125;'</span>,</div><div class="line">			  &#125;,</div><div class="line">			&#125;)</div><div class="line">			gitment.render(<span class="string">'gitmentContainer'</span>)</div><div class="line">			&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <p>然后在站点配置文件末尾添加</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><div class="line">gitment: </div><div class="line">    owner: findneo</div><div class="line">    commentrepo: findneo.github.io</div><div class="line">    clientid: a3407310dfbeafbfe55a</div><div class="line">    clientsecret: ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gitment: </div><div class="line">    owner: findneo</div><div class="line">    commentrepo: findneo.github.io</div><div class="line">    clientid: a3407310dfbeafbfe55a</div><div class="line">    clientsecret: ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d</div></pre></td></tr></table></figure>
 <p><strong>需要注意的是每发布一篇文章都需要把该页面初始化一下其他人才可以评论，这是因为评论基于issue，并不是bug</strong></p>
 <h3 id="单独控制每篇文章版权声明"><a href="#单独控制每篇文章版权声明" class="headerlink" title="单独控制每篇文章版权声明"></a>单独控制每篇文章版权声明</h3><p>给 <code>themes\next\layout\_macro\post-copyright.swig</code> 加上控制流程，通过每个post的 front-matter控制，遇到想不加版权声明的文章就在头部加上 <code>notoriginal: true</code> 即可，不影响已有文章。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&#123;% if not post.notoriginal %&#125;</div><div class="line">foo</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% if not post.notoriginal %&#125;</div><div class="line">foo</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -512,6 +529,17 @@
 
           
 
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
         </div>
         
           
@@ -552,7 +580,7 @@
                 alt="findneo" />
             
               <p class="site-author-name" itemprop="name">findneo</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Time is of the essence.</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -562,7 +590,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -573,7 +601,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -584,7 +612,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -710,6 +738,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      site_uv
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      site_pv
+    </span>
+  
+</div>
+
 
 
 
@@ -728,6 +776,12 @@
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -855,6 +909,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'findneo',
+            repo: 'findneo.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d',
+            
+                client_id: 'a3407310dfbeafbfe55a'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
@@ -1191,6 +1269,31 @@
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   

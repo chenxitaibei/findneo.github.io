@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="findneo">
 <meta property="og:description" content="解放鼠标，从命令行连接与断开网络">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-22T10:36:00.093Z">
+<meta property="og:updated_time" content="2018-02-28T16:06:25.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="命令行拨号上网">
 <meta name="twitter:description" content="解放鼠标，从命令行连接与断开网络">
@@ -363,10 +363,27 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/cmd-surfnet/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/10/cmd-surfnet/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
 
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>page_pv
+            </span>
           
 
           
@@ -393,7 +410,7 @@
         <p>校园网使用PPPoE拨号上网，每次都通过图形化界面通断网络不太方便，希望能一键上网一键下线，于是写了个小脚本。</p>
 <p>配置好相关参数后保存为  <code>C:\Windows\System32\surf.bat</code> ，重启命令行即可使用 <code>surf</code> 命令通断网络，常用的话甚至只要 <code>win+r-&gt;enter</code>就可以自由迅速地上线下线啦。把下面第二十行的注释去掉可以在联网同时打开ss，有些缺憾的是还没有实现断网时退出ss。</p>
 <p>流程控制参考了<a href="http://www.infionline.net/~wtnewton/batch/batguide.html#8" target="_blank" rel="external">Batch Guide by Terry Newton</a> 。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><div class="line">REM 校园网使用PPPoE拨号上网，将文件内容存为 C:\Windows\System32\surf.bat ，可以命令行拨号上网</div><div class="line">REM 可自行加开ss</div><div class="line">@echo off</div><div class="line"><span class="built_in">set</span> name=net  			 REM 	修改net 为拨号连接的名字</div><div class="line"><span class="built_in">set</span> phone=<span class="number">13323333333</span> 	  REM	 修改为拨号上网手机号</div><div class="line"><span class="built_in">set</span> pass=<span class="number">2333</span>   		 REM   	 运营商提供的密码</div><div class="line"></div><div class="line">rasdial | findstr 已连接 &gt; nul</div><div class="line"><span class="keyword">if</span> errorlevel <span class="number">1</span> <span class="keyword">goto</span> notfound</div><div class="line"></div><div class="line">rem <span class="built_in">string</span> was found</div><div class="line">rasdial %name% /disconnect </div><div class="line"></div><div class="line"><span class="keyword">goto</span> endfind</div><div class="line"></div><div class="line">:notfound</div><div class="line">rem <span class="built_in">string</span> was <span class="keyword">not</span> found</div><div class="line">rasdial %name% %phone% %pass%</div><div class="line"><span class="keyword">if</span> <span class="string">"%1"</span> neq <span class="string">""</span> <span class="keyword">goto</span> :endfind</div><div class="line">REM start C:\path\to\your\Shadowsocks\Shadowsocks.exe</div><div class="line">:endfind</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">REM 校园网使用PPPoE拨号上网，将文件内容存为 C:\Windows\System32\surf.bat ，可以命令行拨号上网</div><div class="line">REM 可自行加开ss</div><div class="line">@echo off</div><div class="line"><span class="built_in">set</span> name=net  			 REM 	修改net 为拨号连接的名字</div><div class="line"><span class="built_in">set</span> phone=<span class="number">13323333333</span> 	  REM	 修改为拨号上网手机号</div><div class="line"><span class="built_in">set</span> pass=<span class="number">2333</span>   		 REM   	 运营商提供的密码</div><div class="line"></div><div class="line">rasdial | findstr 已连接 &gt; nul</div><div class="line"><span class="keyword">if</span> errorlevel <span class="number">1</span> <span class="keyword">goto</span> notfound</div><div class="line"></div><div class="line">rem <span class="built_in">string</span> was found</div><div class="line">rasdial %name% /disconnect </div><div class="line"></div><div class="line"><span class="keyword">goto</span> endfind</div><div class="line"></div><div class="line">:notfound</div><div class="line">rem <span class="built_in">string</span> was <span class="keyword">not</span> found</div><div class="line">rasdial %name% %phone% %pass%</div><div class="line"><span class="keyword">if</span> <span class="string">"%1"</span> neq <span class="string">""</span> <span class="keyword">goto</span> :endfind</div><div class="line">REM start C:\path\to\your\Shadowsocks\Shadowsocks.exe</div><div class="line">:endfind</div></pre></td></tr></table></figure>
 <p>2017/10/05 更新代码：</p>
 <p>添加第十九行，如果ss已经在运行，只要传入一个参数就不会尝试开启啦。</p>
 
@@ -490,6 +507,17 @@
 
           
 
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
         </div>
         
           
@@ -521,7 +549,7 @@
                 alt="findneo" />
             
               <p class="site-author-name" itemprop="name">findneo</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Time is of the essence.</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -531,7 +559,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +570,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -553,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -663,6 +691,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      site_uv
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      site_pv
+    </span>
+  
+</div>
+
 
 
 
@@ -681,6 +729,12 @@
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -808,6 +862,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'findneo',
+            repo: 'findneo.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'ad6c900a0fce4a44b8eeb40e1790ee7c7cc7575d',
+            
+                client_id: 'a3407310dfbeafbfe55a'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
@@ -1144,6 +1222,31 @@
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   
