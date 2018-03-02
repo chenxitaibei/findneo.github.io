@@ -100,9 +100,9 @@
       <category term="writeup" scheme="https://findneo.github.io/categories/writeup/"/>
     
     
-      <category term="ctf" scheme="https://findneo.github.io/tags/ctf/"/>
-    
       <category term="命令注入" scheme="https://findneo.github.io/tags/%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/"/>
+    
+      <category term="ctf" scheme="https://findneo.github.io/tags/ctf/"/>
     
   </entry>
   
