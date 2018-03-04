@@ -15,18 +15,20 @@
   {### POST BLOCK ###}
   {##################}
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="{{ config.url }}{{ url_for(post.path) }}">
+    <!--
+		<link itemprop="mainEntityOfPage" href="{{ config.url }}{{ url_for(post.path) }}">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="{{ theme.author }}">
-      <meta itemprop="description" content="{{ theme.signature }}">
-      <meta itemprop="image" content="{{ url_for( theme.avatar | default(theme.images + '/avatar.gif') ) }}">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="{{ config.title }}">
-    </span>
-
+		<span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+		  <meta itemprop="name" content="{{ theme.author }}">
+		  <meta itemprop="description" content="{{ theme.signature }}">
+		  <meta itemprop="image" content="{{ url_for( theme.avatar | default(theme.images + '/avatar.gif') ) }}">
+		</span>
+	
+		<span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+		  <meta itemprop="name" content="{{ config.title }}">
+		</span>
+	-->
+	
     {% if not headlessPost %}
       <header class="post-header">
 
@@ -280,42 +282,44 @@
       {% endif %}
 
       {% if is_index %}
-        {% if post.description and theme.excerpt_description %}
-          {{ post.description }}
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="{{ url_for(post.path) }}">
-              {{ __('post.read_more') }} &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        {% elif post.excerpt  %}
-          {{ post.excerpt }}
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
-              {{ __('post.read_more') }} &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        {% elif theme.auto_excerpt.enable %}
-          {% set content = post.content | striptags %}
-          {{ content.substring(0, theme.auto_excerpt.length) }}
-          {% if content.length > theme.auto_excerpt.length %}...{% endif %}
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
-              {{ __('post.read_more') }} &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        {% else %}
-          {% if post.type === 'picture' %}
-            <a href="{{ url_for(post.path) }}">{{ post.content }}</a>
-          {% else %}
-            {{ post.content }}
-          {% endif %}
-        {% endif %}
+			{{""}}
+			{#	{% if post.description and theme.excerpt_description %}
+				  {{ post.description }}
+				  <!--noindex-->
+				  <div class="post-button text-center">
+					<a class="btn" href="{{ url_for(post.path) }}">
+					  {{ __('post.read_more') }} &raquo;
+					</a>
+				  </div>
+				  <!--/noindex-->
+				{% elif post.excerpt  %}
+				  {{ post.excerpt }}
+				  <!--noindex-->
+				  <div class="post-button text-center">
+					<a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
+					  {{ __('post.read_more') }} &raquo;
+					</a>
+				  </div>
+				  <!--/noindex-->
+				{% elif theme.auto_excerpt.enable %}
+				  {% set content = post.content | striptags %}
+				  {{ content.substring(0, theme.auto_excerpt.length) }}
+				  {% if content.length > theme.auto_excerpt.length %}...{% endif %}
+				  <!--noindex-->
+				  <div class="post-button text-center">
+					<a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
+					  {{ __('post.read_more') }} &raquo;
+					</a>
+				  </div>
+				  <!--/noindex-->
+				{% else %}
+				  {% if post.type === 'picture' %}
+					<a href="{{ url_for(post.path) }}">{{ post.content }}</a>
+				  {% else %}
+					{{ post.content }}
+				  {% endif %}
+				{% endif %}
+			#}
       {% else %}
         {{ post.content }}
       {% endif  %}

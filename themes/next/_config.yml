@@ -456,7 +456,8 @@ needmoreshare2:
       iconStyle: box
       boxForm: horizontal
       position: middleRight
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+      # networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+      networks: Weibo,Evernote,Douban,Twitter,Facebook,Reddit
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
