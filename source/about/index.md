@@ -17,7 +17,7 @@ EMAIL dfindneo#gmail.com
 
 **Tiny jobs**
 
-[IP地址混淆器](https://findneo.github.io/IP-Obfuscator/) 	 [即时编解码工具](https://findneo.github.io/fcode/)		[为 MD 生成 TOC](https://findneo.github.io/gen-markdown-content/) 
+[IP地址混淆器](https://findneo.github.io/IP-Obfuscator/) 	 [即时编解码工具](https://findneo.github.io/fcode/)		[为 MD 生成 TOC](https://findneo.github.io/gen-markdown-content/)  		[快速爆破一句话](https://findneo.github.io/stealshell/)
 
 ------
 
