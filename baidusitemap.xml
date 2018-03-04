@@ -3,6 +3,27 @@
 
 
     
+    
+  <url>
+    <loc>https://findneo.github.io/2018/03/180304StealShell/</loc>
+    <lastmod>2018-03-04T16:22:14.912Z</lastmod>
+    <data>
+        <display>
+        <title>一句话快速爆破脚本</title>
+        <pubTime>2018-03-04T14:48:13.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="奇技淫巧" url="https://findneo.github.io/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>https://findneo.github.io/2018/01/xctf20180106/</loc>
     <lastmod>2018-03-04T02:33:56.225Z</lastmod>
@@ -51,9 +72,9 @@
         <title>HITCON CTF 2017 BabyFirst Revenge & v2 writeup</title>
         <pubTime>2017-11-12T09:14:27.000Z</pubTime>
         
-        <tag>ctf</tag>
-         
         <tag>命令注入</tag>
+         
+        <tag>ctf</tag>
          
          
            
@@ -64,7 +85,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://findneo.github.io/2017/11/textual-representation-of-IP-address/</loc>

