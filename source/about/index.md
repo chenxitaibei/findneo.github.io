@@ -1,6 +1,6 @@
 ---
 title: About
-comments: false
+comments: true
 date: 2017-09-24 03:27:04
 ---
 

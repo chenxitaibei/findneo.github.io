@@ -52,15 +52,15 @@ menu:
   - page: home
     directory: .
     icon: fa-home
-  - page: archive
-    directory: archives/
-    icon: fa-archive
+  # - page: archive
+  #   directory: archives/
+  #   icon: fa-archive
   - page: about
     directory: about/
     icon: fa-user
-  - page: guestbook
-    directory: guestbook/
-    icon: fa-comments
+  # - page: guestbook
+  #   directory: guestbook/
+  #   icon: fa-comments
   - page: rss
     directory: atom.xml
     icon: fa-rss
@@ -69,7 +69,7 @@ widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts
   - search
   - category
   - tag
-  - recent_posts
+  # - recent_posts
   - links
   - recent_comments
 
