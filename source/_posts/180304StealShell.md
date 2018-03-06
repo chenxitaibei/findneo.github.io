@@ -1,5 +1,6 @@
 ---
-comments: true
+comments: false
+toc: true
 title: 一句话快速爆破脚本
 tags: [php]
 date: 2018-03-04 22:48:13

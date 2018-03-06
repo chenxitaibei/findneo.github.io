@@ -1,5 +1,6 @@
 ---
 title: About
+comments: false
 date: 2017-09-24 03:27:04
 ---
 
@@ -9,20 +10,21 @@ date: 2017-09-24 03:27:04
 
 XMU 2015级本科在读
 
-WECHAT dlgbyhll
+GitHub:	 [@findneo](https://github.com/findneo) 
 
-EMAIL dfindneo#gmail.com
+WECHAT: dlgbyhll
+
+EMAIL: dfindneo#gmail.com
 
 ------
 
 **Tiny jobs**
 
-[IP地址混淆器](https://findneo.github.io/IP-Obfuscator/) 	 [即时编解码工具](https://findneo.github.io/fcode/)		[为 MD 生成 TOC](https://findneo.github.io/gen-markdown-content/)  		[快速爆破一句话](https://findneo.github.io/stealshell/)
+[IP地址混淆器](https://findneo.github.io/IP-Obfuscator/) 	
 
-------
+[即时编解码工具](https://findneo.github.io/fcode/)		
 
-**links**
+[为 MD 生成 TOC](https://findneo.github.io/gen-markdown-content/)  		
 
-[My Github](https://github.com/findneo) 	[Ph0en1x ctf team](https://ph0en1x.com/)		
+[快速爆破一句话](https://findneo.github.io/stealshell/)
 
-[Chybeta](https://chybeta.github.io/)		[Vancir](http://vancir.com/)	[lzhtiny](https://lxpark.com/)	[Mads](https://madsome.cn/) 

@@ -1,5 +1,6 @@
 ---
-comments: true
+comments: false
+toc: true
 title: 如何绕过四个字符限制getshell
 tags: [命令注入]
 date: 2017-11-10 18:34:05

@@ -1,5 +1,6 @@
 ---
-comments: true
+comments: false
+toc: true
 title: 武汉大学C语言上级训练系统练习
 tags: [C]
 date: 2016-08-20 08:15:01

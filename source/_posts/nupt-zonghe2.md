@@ -1,9 +1,10 @@
 ---
 title: 南邮CTF平台综合题2writeup
+toc: true
 tags: [sqli , ctf ]
 date: 2017-10-04 21:04:34
 categories: writeup
-comments: true
+comments: false
 description: 通过SQL注入得到后台登陆密码，连接管理员自用的回调后门。
 ---
 
