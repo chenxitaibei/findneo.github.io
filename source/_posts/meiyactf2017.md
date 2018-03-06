@@ -5,8 +5,7 @@ title: 第二届美亚柏科邀请赛
 tags: [ctf]
 date: 2017-12-23 20:36:25
 categories: writeup
-description: ...
-
+description: 盲注点隐藏的挺好
 ---
 
 ### WEB
