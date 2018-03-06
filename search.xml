@@ -171,23 +171,23 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[About]]></title>
     <url>%2Fabout%2Findex.html</url>
     <content type="text"><![CDATA[本博客于2017年国庆前后上线，用以记录与分享所学所思。 XMU 2015级本科在读 GitHub: @findneo WECHAT: dlgbyhll EMAIL: dfindneo#gmail.com Tiny jobs IP地址混淆器 即时编解码工具 为 MD 生成 TOC 快速爆破一句话]]></content>
   </entry>
   <entry>
-    <title><![CDATA[留言]]></title>
-    <url>%2Fguestbook%2Findex.html</url>
-    <content type="text"><![CDATA[欢迎大家给我留言 ， 一起交流 ！]]></content>
+    <title><![CDATA[categories]]></title>
+    <url>%2Fcategories%2Findex.html</url>
+    <content type="text"></content>
   </entry>
   <entry>
     <title><![CDATA[tags]]></title>
     <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[留言]]></title>
+    <url>%2Fguestbook%2Findex.html</url>
+    <content type="text"><![CDATA[欢迎大家给我留言 ， 一起交流 ！]]></content>
   </entry>
 </search>
