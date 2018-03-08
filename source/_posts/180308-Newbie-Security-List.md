@@ -10,6 +10,10 @@ categories: 备忘
 
 
 
+
+
+>  You may get the latest version at Github( [https://github.com/findneo/Newbie-Security-List )](https://github.com/findneo/Newbie-Security-List)
+
 # ***Newbie*-Security-List**
 
 > 一桌菜，十几盘，有荤有素，有凉有热，怎么吃呢？你可以找一盘看起来好吃的，也可以找一盘离自己近的，都行。但是，得动筷子。不管怎么吃，最重要的是得动筷子。学技术也是一样。
