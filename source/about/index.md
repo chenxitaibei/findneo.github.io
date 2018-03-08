@@ -6,15 +6,13 @@ date: 2017-09-24 03:27:04
 
 
 
-本博客于2017年国庆前后上线，用以记录与分享所学所思。
+Explorer  ; Student@XMU ; Blog from 2017/10 .
 
-XMU 2015级本科在读
+Need a job/career realted to cyber security ;
 
-GitHub:	 [@findneo](https://github.com/findneo) 
 
-WECHAT: dlgbyhll
 
-EMAIL: dfindneo#gmail.com
+GitHub:	 [@findneo](https://github.com/findneo) 	WECHAT: dlgbyhll		EMAIL: dfindneo#gmail.com
 
 ------
 
@@ -28,3 +26,6 @@ EMAIL: dfindneo#gmail.com
 
 [快速爆破一句话](https://findneo.github.io/stealshell/)
 
+[TK语录](https://github.com/findneo/TKposts) 
+
+[Newbie-Security-List](https://github.com/findneo/Newbie-Security-List)  
