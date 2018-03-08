@@ -12,7 +12,7 @@ categories: 备忘
 
 
 
->  You may get the latest version at Github( [https://github.com/findneo/Newbie-Security-List )](https://github.com/findneo/Newbie-Security-List)
+>  项目地址在 Github：[https://github.com/findneo/Newbie-Security-List](https://github.com/findneo/Newbie-Security-List) 
 
 # ***Newbie*-Security-List**
 

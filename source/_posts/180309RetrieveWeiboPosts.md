@@ -70,5 +70,6 @@ print asctime()
 - 了解了正则表达式的`backreference`和`lazy mode` 。
 - 使用 `json.load(file)` 将json文件转换成字典。
 - 数据编码问题可能导致写文件报错，可用`f.write(data.encode('utf8'))` 。
+- 用`with open("f1") as f1,open("f2") as f2:` 打开多个文件。
 - 每一个人作为数字公民的部分可能最后并不能留下太多痕迹，而且这些痕迹可能非常脆弱。当然，话说回来，这同线下生活也是相似的。
 
