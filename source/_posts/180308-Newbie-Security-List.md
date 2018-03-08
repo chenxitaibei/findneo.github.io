@@ -2,7 +2,7 @@
 comments: false
 toc: true
 mathjax: true
-title: 网络安全学习相关链接
+title: 网络安全学习资料
 tags: [resources]
 date: 2018-03-08 14:31:44
 categories: 备忘
