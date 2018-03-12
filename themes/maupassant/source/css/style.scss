@@ -16,13 +16,13 @@ html, button, input, select, textarea,
 .MJXc-TeX-unknown-R,
 .pure-g [class *= "pure-u"] {
     /* Set your content font stack here: */
-    font-family: "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif !important;
+    font-family: "Monaco","PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif !important;
 }
 
 body {
     background-color: #FFF;
     color: #444;
-    font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    font-family: "Monaco","TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
@@ -207,20 +207,20 @@ div {
         display: inline;
         text-indent: .15em;
         &:before {
-              font-family: "FontAwesome";
+              font-family: "Monaco","FontAwesome";
               content: "\f073";
               padding-right: 0.3em;
         }
         .category {
             &:before {
-              font-family: "FontAwesome";
+              font-family: "Monaco","FontAwesome";
               content: "\f07c";
               padding-right: 0.3em;
             }
         }
         #busuanzi_value_page_pv {
             &:before {
-              font-family: "FontAwesome";
+              font-family: "Monaco","FontAwesome";
               content: "\f024";
               padding-right: 0.3em;
             }
@@ -234,7 +234,7 @@ div {
         display: inline;
         text-indent: .15em;
         &:before {
-          font-family: "FontAwesome";
+          font-family: "Monaco","FontAwesome";
           content: "\f0e5";
           padding-right: 0.3em;
         }
@@ -250,7 +250,7 @@ div {
         display: inline;
         text-indent: .15em;
         &:before {
-          font-family: "FontAwesome";
+          font-family: "Monaco","FontAwesome";
           content: "\f0e5";
           padding-right: 0.3em;
         }
@@ -342,7 +342,7 @@ div {
         a {
             margin-right: .5em;
             &:before {
-                font-family: "FontAwesome";
+                font-family: "Monaco","FontAwesome";
                 content: "\f0c6";
                 padding-right: 0.3em;
             }
@@ -375,7 +375,7 @@ div {
         &.prev {
             float: left;
             &:before {
-                font-family: "FontAwesome";
+                font-family: "Monaco","FontAwesome";
                 content: "\f100";
                 padding-right: 0.3em;
             }
@@ -383,7 +383,7 @@ div {
         &.next {
             float: right;
             &:after {
-                font-family: "FontAwesome";
+                font-family: "Monaco","FontAwesome";
                 content: "\f101";
                 padding-left: 0.3em;
             }
@@ -478,7 +478,7 @@ blockquote,.stressed {
 blockquote::before,.stressed-quote::before {
     content: "\201C";
     display: block;
-    font-family: times;
+    font-family: "Monaco",times;
     font-style: normal;
     font-size: 48px;
     color: #444;
@@ -625,7 +625,7 @@ pre {
     text-align: left;
 }
 #process span.number {
-    font-family: 'Georgia', serif, Helvetica, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
+    font-family: "Monaco",'Georgia', serif, Helvetica, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
     font-style: italic;
     font-size: 20px;
     line-height: 0;
@@ -652,7 +652,7 @@ pre {
     transform: rotate(180deg);
 }
 .timeline-label p {
-    font-family: Helvetica, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
+    font-family: "Monaco",Helvetica, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
     margin-bottom: 3px
 }
 #process .timeline-centered .timeline-entry .timeline-entry-inner {
@@ -750,7 +750,7 @@ pre {
 #process .present,
 #process .born {
   font-size: 14px;
-  font-family: 'Georgia', serif, Helvetica, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
+  font-family: "Monaco",'Georgia', serif, Helvetica, "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-style: italic;
   color: #333;
   padding: 10px;
@@ -845,7 +845,7 @@ pre {
     border-radius: 5px;
     float: right;
     &:after {
-        font-family: "FontAwesome";
+        font-family: "Monaco","FontAwesome";
         content: "\f101";
         padding-left: 0.3em;
     }
@@ -875,7 +875,7 @@ figure.highlight,
     .code,
     .tag {
         background-color: inherit;
-        font-family: Menlo, Consolas, monospace;
+        font-family: "Monaco",Menlo, Consolas, monospace;
         border:      none;
         padding:     0;
         margin:      0;
@@ -934,7 +934,7 @@ figure.highlight,
 .gist {
     .line,
     .line-number {
-        font-family: Menlo, Consolas, monospace;
+        font-family: "Monaco",Menlo, Consolas, monospace;
         font-size:   1em;
         margin:      0 0 5px 0;
     }
@@ -1478,7 +1478,7 @@ figure.highlight,
         &.pre {
             float: left;
             &:before {
-              font-family: "FontAwesome";
+              font-family: "Monaco","FontAwesome";
               content: "\f0d9";
               padding-right: 0.3em;
             }
@@ -1486,7 +1486,7 @@ figure.highlight,
         &.next {
             float: right;
             &:after {
-              font-family: "FontAwesome";
+              font-family: "Monaco","FontAwesome";
               content: "\f0da";
               padding-left: 0.3em;
             }
@@ -1555,7 +1555,7 @@ table {
   float: right;
   margin-left: 20px;
   &:before {
-    font-family: "FontAwesome";
+    font-family: "Monaco","FontAwesome";
     content: "\f064";
     padding-right: 6px;
   }
@@ -1604,7 +1604,7 @@ table {
     text-shadow: 0 1px #fff;
     &:before {
       font-size: 20px;
-      font-family: "FontAwesome";
+      font-family: "Monaco","FontAwesome";
       width: 20px;
       height: 20px;
       position: absolute;
@@ -1692,7 +1692,7 @@ em.search-keyword {
   min-width: 50px;
   padding: 0 14px;
   display: inline-block;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Monaco","Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;

@@ -38,7 +38,7 @@ description: 绕过四个字符限制getshell
 
 #### 解法
 
-详细说明：http://bobao.360.cn/ctf/detail/214.html
+详细说明：https://findneo.github.io/2017/11/171110Bypass4CLimit/
 
 拿到shell后在`/home/fl4444g/README.txt`  得到数据库配置信息，然后连接数据库得到flag。
 
@@ -143,7 +143,7 @@ https://github.com/orangetw/My-CTF-Web-Challenges#babyfirst-revenge
 
 这题是赛后看wp复现的，只到拿webshell的部分。
 
-详细说明： http://bobao.360.cn/ctf/detail/214.html
+详细说明： https://findneo.github.io/2017/11/171110Bypass4CLimit/
 
 #### EXP
 

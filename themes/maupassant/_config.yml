@@ -74,16 +74,16 @@ widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts
   - recent_comments
 
 links:
-  - title: Ph0en1x ctf team
-    url: https://ph0en1x.com/
   - title: Chybeta
     url: https://chybeta.github.io/
-  - title: Vancir
-    url: http://vancir.com/
   - title: lzhtony
     url: https://lxpark.com/
   - title: Mads
     url: https://madsome.cn/
+  - title: Ph0en1x ctf team
+    url: https://ph0en1x.com/
+  - title: Vancir
+    url: http://vancir.com/
 
 # timeline:
 #   - num: 1
