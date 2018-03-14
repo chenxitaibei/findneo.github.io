@@ -160,7 +160,7 @@
   <entry>
     <title><![CDATA[命令行拨号上网]]></title>
     <url>%2F2017%2F10%2Fcmd-surfnet%2F</url>
-    <content type="text"><![CDATA[校园网使用PPPoE拨号上网，每次都通过图形化界面通断网络不太方便，希望能一键上网一键下线，于是写了个小脚本。 配置好相关参数后保存为 C:\Windows\System32\surf.bat ，重启命令行即可使用 surf 命令通断网络，常用的话甚至只要 win+r-&gt;enter就可以自由迅速地上线下线啦。把下面第二十行的注释去掉可以在联网同时打开ss，有些缺憾的是还没有实现断网时退出ss。 流程控制参考了Batch Guide by Terry Newton 。 123456789101112131415161718192021REM 校园网使用PPPoE拨号上网，将文件内容存为 C:\Windows\System32\surf.bat ，可以命令行拨号上网REM 可自行加开ss@echo offset name=net REM 修改net 为拨号连接的名字set phone=13323333333 REM 修改为拨号上网手机号set pass=2333 REM 运营商提供的密码rasdial | findstr 已连接 &gt; nulif errorlevel 1 goto notfoundrem string was foundrasdial %name% /disconnect goto endfind:notfoundrem string was not foundrasdial %name% %phone% %pass%if "%1" neq "" goto :endfindREM start C:\path\to\your\Shadowsocks\Shadowsocks.exe:endfind 2017/10/05 更新代码： 添加第十九行，如果ss已经在运行，只要传入一个参数就不会尝试开启啦。]]></content>
+    <content type="text"><![CDATA[校园网使用PPPoE拨号上网，每次都通过图形化界面通断网络不太方便，希望能一键上网一键下线，于是写了个小脚本。 配置好相关参数后保存为 C:\Windows\System32\surf.bat ，重启命令行即可使用 surf 命令通断网络，常用的话甚至只要 win+r-&gt;enter就可以自由迅速地上线下线啦。把下面第二十行的注释去掉可以在联网同时打开ss，有些缺憾的是还没有实现断网时退出ss。 流程控制参考了Batch Guide by Terry Newton 。 123456789101112131415161718192021REM 校园网使用PPPoE拨号上网，将文件内容存为 C:\Windows\System32\surf.bat ，可以命令行拨号上网REM 可自行加开ss@echo offset name=net REM 修改net 为拨号连接的名字set phone=13323333333 REM 修改为拨号上网手机号set pass=2333 REM 运营商提供的密码rasdial | findstr 已连接 &gt; nulif errorlevel 1 goto notfoundrem string was foundrasdial %name% /disconnect goto endfind:notfoundrem string was not foundrasdial %name% %phone% %pass%if "%1" neq "" goto :endfindREM start C:\path\to\your\Shadowsocks\Shadowsocks.exe:endfind 2017/10/05 更新代码添加第十九行，如果ss已经在运行，只要传入一个参数就不会尝试开启啦。 2018-03-12重写逻辑更清晰，添加重连功能，有时被ban可以起到刷新IP的作用。 surf r 断开并重新连接 surf 通&lt;=&gt;断 surf any 连接但不启动shadow socks 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647@echo offset name=surf set phone=15759261656 set pass=285530 rasdial | findstr 已连接 &gt; nulset is_connect=%errorlevel%echo %is_connect%if %is_connect%==1 goto not_connectedif %is_connect%==0 goto connected:connectedif "%1"=="r" goto re_connectgoto disconnect:not_connectedif "%1"=="" goto connect_with_ssgoto connect_without_ssrem ==========================================:re_connectrasdial %name% /disconnectping 127.1 -n 2 &gt; nulrasdial %name% %phone% %pass%ipconfig | find "IPv4"goto end:disconnectrasdial %name% /disconnectgoto end:connect_without_ssrasdial %name% %phone% %pass%ipconfig | find "IPv4"goto end:connect_with_ssrasdial %name% %phone% %pass%start D:\path\to\Shadowsocks-4.0.6\Shadowsocks.exeipconfig | find "IPv4"goto end:end]]></content>
       <categories>
         <category>备忘</category>
       </categories>
@@ -209,13 +209,13 @@
     <content type="text"></content>
   </entry>
   <entry>
+    <title><![CDATA[About]]></title>
+    <url>%2Fabout%2Findex.html</url>
+    <content type="text"><![CDATA[Explorer ; Student@XMU ; Blog from 2017/10 . Need a job/career related to cyber security . GitHub WECHAT EMAIL @findneo dlgbyhll moc.liamg@oendnifd Tiny jobs tools IP地址混淆器 kt.gy 即时编解码工具 WooyunDrops 为 MD 生成 TOC 快速爆破一句话 TK语录 Newbie-Security-List]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[tags]]></title>
     <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[About]]></title>
-    <url>%2Fabout%2Findex.html</url>
-    <content type="text"><![CDATA[Explorer ; Student@XMU ; Blog from 2017/10 . Need a job/career related to cyber security . GitHub WECHAT EMAIL @findneo dlgbyhll dfindneo#gmail.com Tiny jobs tools IP地址混淆器 kt.gy 即时编解码工具 WooyunDrops 为 MD 生成 TOC 快速爆破一句话 TK语录 Newbie-Security-List]]></content>
   </entry>
 </search>
