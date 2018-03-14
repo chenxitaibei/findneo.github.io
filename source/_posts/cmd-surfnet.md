@@ -40,6 +40,68 @@ REM start C:\path\to\your\Shadowsocks\Shadowsocks.exe
 
 
 
-2017/10/05 更新代码：
+## 2017/10/05 更新代码
 
 添加第十九行，如果ss已经在运行，只要传入一个参数就不会尝试开启啦。
+
+
+
+------
+
+## 2018-03-12重写
+
+逻辑更清晰，添加重连功能，有时被ban可以起到刷新IP的作用。
+
+- **surf  r**  断开并重新连接
+- **surf**  通<=>断
+- **surf any**  连接但不启动shadow socks
+
+```c
+@echo off
+set name=surf  			
+set phone=15759261656  
+set pass=285530	 	
+rasdial | findstr 已连接 > nul
+set is_connect=%errorlevel%
+
+echo %is_connect%
+
+if %is_connect%==1 goto not_connected
+if %is_connect%==0 goto connected
+
+:connected
+if "%1"=="r" goto re_connect
+goto disconnect
+
+
+:not_connected
+if "%1"=="" goto connect_with_ss
+goto connect_without_ss
+
+rem ==========================================
+
+:re_connect
+rasdial %name% /disconnect
+ping 127.1 -n 2 > nul
+rasdial %name% %phone% %pass%
+ipconfig | find "IPv4"
+goto end
+
+:disconnect
+rasdial %name% /disconnect
+goto end
+
+:connect_without_ss
+rasdial %name% %phone% %pass%
+ipconfig | find "IPv4"
+goto end
+
+:connect_with_ss
+rasdial %name% %phone% %pass%
+start D:\path\to\Shadowsocks-4.0.6\Shadowsocks.exe
+ipconfig | find "IPv4"
+goto end
+
+
+:end
+```

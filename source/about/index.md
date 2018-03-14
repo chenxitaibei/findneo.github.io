@@ -14,7 +14,7 @@ Need a job/career related to cyber security .
 
 | GitHub                                 | WECHAT   | EMAIL              |
 | :------------------------------------- | :------- | :----------------- |
-| [@findneo](https://github.com/findneo) | dlgbyhll | dfindneo#gmail.com |
+| [@findneo](https://github.com/findneo) | dlgbyhll | moc.liamg@oendnifd |
 
 
 
