@@ -58,9 +58,9 @@ REM start C:\path\to\your\Shadowsocks\Shadowsocks.exe
 
 ```c
 @echo off
-set name=surf  			
-set phone=15759261656  
-set pass=285530	 	
+set name=net  			 REM 	修改net 为拨号连接的名字
+set phone=13323333333 	  REM	 修改为拨号上网手机号
+set pass=2333   		 REM   	 运营商提供的密码	
 rasdial | findstr 已连接 > nul
 set is_connect=%errorlevel%
 

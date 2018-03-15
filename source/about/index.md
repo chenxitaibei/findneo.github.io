@@ -6,7 +6,7 @@ date: 2017-09-24 03:27:04
 
 
 
-Explorer  ; Student@XMU ; Blog from 2017/10 .
+Explorer  ; Student@XMU ; Blog since 2017/10 .
 
 Need a job/career related to cyber security .
 
