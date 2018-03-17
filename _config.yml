@@ -16,7 +16,8 @@ url: https://findneo.github.io/
 # url: http://findneo.tech/
 root: /
 # permalink: :year/:month/:day/:title/
-permalink: :year/:month/:title/
+# permalink: :year/:month/:title/
+permalink: :title/
 permalink_defaults:
 
 # Directory
