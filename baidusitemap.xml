@@ -455,14 +455,16 @@
 
     
   <url>
-    <loc>http://findneo.tech/170924NuptCTFWP/</loc>
+    <loc>http://findneo.tech/171005NuptVigenereWP/</loc>
     <lastmod>2018-03-14T10:11:56.364Z</lastmod>
     <data>
         <display>
-        <title>南京邮电大学网络攻防训练平台writeup</title>
-        <pubTime>2017-09-24T03:06:34.000Z</pubTime>
+        <title>南邮CTF平台 Vigenere writeup</title>
+        <pubTime>2017-10-05T11:40:09.000Z</pubTime>
         
         <tag>ctf</tag>
+         
+        <tag>密码学</tag>
          
          
            
@@ -475,16 +477,14 @@
 
     
   <url>
-    <loc>http://findneo.tech/171005NuptVigenereWP/</loc>
+    <loc>http://findneo.tech/170924NuptCTFWP/</loc>
     <lastmod>2018-03-14T10:11:56.364Z</lastmod>
     <data>
         <display>
-        <title>南邮CTF平台 Vigenere writeup</title>
-        <pubTime>2017-10-05T11:40:09.000Z</pubTime>
+        <title>南京邮电大学网络攻防训练平台writeup</title>
+        <pubTime>2017-09-24T03:06:34.000Z</pubTime>
         
         <tag>ctf</tag>
-         
-        <tag>密码学</tag>
          
          
            
