@@ -338,9 +338,9 @@
       <category term="writeup" scheme="http://findneo.tech/categories/writeup/"/>
     
     
-      <category term="ctf" scheme="http://findneo.tech/tags/ctf/"/>
-    
       <category term="sqli" scheme="http://findneo.tech/tags/sqli/"/>
+    
+      <category term="ctf" scheme="http://findneo.tech/tags/ctf/"/>
     
   </entry>
   
