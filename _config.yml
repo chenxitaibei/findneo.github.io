@@ -4,8 +4,8 @@
 
 # Site
 title: findneo
-subtitle: Time is of the essence.
-description: Time is of the essence. # the quieter you become, the more you are able to hear.
+subtitle:  # Time is of the essence.
+description: # Time is of the essence. # the quieter you become, the more you are able to hear.
 author: findneo
 language: zh-CN # zh-Hans
 timezone: Asia/Shanghai
